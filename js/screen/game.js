@@ -25,6 +25,7 @@ function preload () {
 var land;
 var players = [];
 var planets;
+var bullets;
 var logo;
 var airconsole = null;
 
@@ -48,6 +49,14 @@ function create () {
     land.height = game.height;
     land.fixedToCamera = true;
 
+    bullets = game.add.group();
+    bullets.enableBody = true;
+    bullets.physicsBodyType = Phaser.Physics.ARCADE;
+    bullets.createMultiple(20, "bullet");
+    bullets.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetBullet);
+    bullets.callAll('anchor.setTo', 'anchor', 0.5, 1.0);
+    bullets.setAll('checkWorldBounds', true);
+
     planets = game.add.group();
     hairs = game.add.group();
     hairs.enableBody = true;
@@ -61,7 +70,6 @@ function create () {
       var y = game.world.randomY;
       var planet = planets.create(x, y, 'rock');
       planet.body.setRectangle(40, 40);
-
       planet.setHealth(10);
       //planet.angle = game.rnd.angle();
       planet.body.setZeroVelocity();
@@ -125,13 +133,14 @@ function create () {
 
       if( data['joystick-right'] )
       {
-        var jrX = data['joystick-right'].message.x;
+        //var jrX = data['joystick-right'].message.x;
 
-        players[device_id].angle += jrX;
+        //players[device_id].angle += jrX;
       }
 
       if (data.Poop && data.Poop.pressed)
       {
+
         players[device_id].damage(25);
         var hair = planets.create(players[device_id].sprite.x, players[device_id].sprite.y, 'hair');
         hair.body.setRectangle(10, 10);
@@ -140,6 +149,16 @@ function create () {
         hair.body.setZeroVelocity();
         hair.body.setCollisionGroup(hairCollisionGroup);
         hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
+
+        players[device_id].damage(1);
+        var bullet = bullets.getFirstExists(false);
+
+        if( bullet )
+        {
+          bullet.reset(players[device_id].sprite.x, players[device_id].sprite.y);
+          bullet.body.velocity.x = 500;
+        }
+
       }
     };
 
@@ -150,6 +169,11 @@ function create () {
 //    game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
 //    game.camera.focusOnXY(0, 0);
 
+}
+
+function resetBullet(bullet)
+{
+  bullet.kill();
 }
 
 function playerHit(body1, body2)
