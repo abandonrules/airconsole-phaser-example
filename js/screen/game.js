@@ -20,7 +20,7 @@ function preload () {
     game.load.atlas('enemy', 'assets/game/enemy-tanks.png', 'assets/game/tanks.json');
     game.load.image('logo', 'assets/logo.png');
     game.load.image('bullet', 'assets/game/bullet.png');
-    game.load.image('earth', 'assets/game/bg.png');
+    game.load.image('earth', 'assets/game/starfield.png');
     game.load.spritesheet('kaboom', 'assets/game/explosion.png', 64, 64, 23);
     game.load.image('cat1', 'assets/game/cat2.png');
     game.load.image('cat2', 'assets/game/cat3.png');
