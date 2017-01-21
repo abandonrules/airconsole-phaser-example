@@ -5,6 +5,16 @@ var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
     render: render
 });
 
+function unitVectorFor(x, y) {
+  var magnitude = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+
+  var unitX = x / magnitude;
+  var unitY = y / magnitude;
+
+  return [unitX, unitY];
+};
+
+
 function preload () {
     game.load.image('logo', 'assets/logo.png');
     game.load.image('bullet', 'assets/game/bullet.png');
