@@ -116,6 +116,7 @@ function create () {
 
         }
       }
+
       if (data.Poop && data.Poop.pressed)
       {
         players[device_id].damage(1);
@@ -134,6 +135,7 @@ function create () {
 function playerHit(body1, body2)
 {
   body1.sprite.alpha -= 0.1;
+  body2.sprite.alpha -= 0.1;
 }
 
 function update () {
