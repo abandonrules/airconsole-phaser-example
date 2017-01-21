@@ -73,8 +73,8 @@ function create () {
     hairs = game.add.group();
     hairs.enableBody = true;
     hairs.physicsBodyType = Phaser.Physics.P2JS;
-    //planets.enableBody = false;
-    //planets.physicsBodyType = Phaser.Physics.P2JS;
+    planets.enableBody = true;
+    planets.physicsBodyType = Phaser.Physics.P2JS;
 
     for( var i = 0; i < 5; i++ )
     {
@@ -214,6 +214,11 @@ function playerHit(body1, body2)
     body1.sprite.kill();
   if (body2.sprite.alpha < 0 )
     body2.sprite.kill();
+
+  if( body2.sprite.name == 'rock')
+  {
+    body2.sprite.body.setZeroVelocity();
+  }
 }
 function kill_storm () {
 
