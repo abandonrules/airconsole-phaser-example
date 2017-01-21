@@ -1,4 +1,4 @@
-var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-example', {
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-airconsole-ggj', {
     preload: preload,
     create: create,
     update: update,
@@ -99,7 +99,7 @@ function create () {
       // }
       //if (1) {
       // if (connected_controllers.length < 9) {
-        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'7);
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat7');
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.setHealth(250);
