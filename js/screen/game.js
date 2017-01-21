@@ -142,8 +142,8 @@ function create () {
 
 function playerHit(body1, body2)
 {
-  body1.damage(1);
-  body2.damage(1);
+  body1.damage -= 1;
+  body2.damage -= 1;
   body1.sprite.alpha -= 0.2;
   body2.sprite.alpha -= 0.2;
   if (body1.sprite.alpha < 0 )
