@@ -133,7 +133,7 @@ function create () {
       if (data.Poop && data.Poop.pressed)
       {
         players[device_id].damage(25);
-        var hair = planets.create(players[device_id].sprite.x, players[device_id].sprite.y, 'hair');
+        var hair = planets.create(players[device_id].x, players[device_id].y, 'hair');
         hair.body.setRectangle(10, 10);
         hair.setHealth(10);
         //planet.angle = game.rnd.angle();
