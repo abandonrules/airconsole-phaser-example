@@ -148,7 +148,11 @@ function create () {
       {
         if( players[i].index == device_id )
         {
-
+          if (data.poop)
+          {
+            players[i].damage(1);
+            
+          }
           if( data.data )
           {
             if( !players[i].SizeSet )
@@ -157,14 +161,10 @@ function create () {
               {
                 players[i].SetSize(0.5);
               }
-
-
               if( data.data.pressed == true && data.element.includes('medium') )
               {
                 players[i].SetSize(.75);
-
               }
-
               if( data.data.pressed == true && data.element.includes('large') )
               {
                   players[i].SetSize(1);
@@ -175,7 +175,7 @@ function create () {
           break;
         }
 
-        if( players.length > 0 )
+        if( players.length > 1 )
         {
           removeLogo();
         }
