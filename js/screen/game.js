@@ -236,7 +236,7 @@ function create () {
     land.fixedToCamera = true;
 
     // Scale
-    var scale_manager = new Phaser.ScaleManager(game, 1300, 900);
+    var scale_manager = new Phaser.ScaleManager(game, 800, 600);
     scale_manager.scaleMode = Phaser.ScaleManager.RESIZE;
     scale_manager.pageAlignVertically = true;
     scale_manager.pageAlignHorizontally = true;
