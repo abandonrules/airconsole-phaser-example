@@ -132,7 +132,7 @@ function create () {
         }
       }
 
-      if( data['joystick-right'] )
+      if( data['joystick-right'] && data['joystick-right'].pressed )
       {
         var jrX = data['joystick-right'].message.x;
         var jrY = data['joystick-right'].message.y;
@@ -141,7 +141,7 @@ function create () {
 
         var bullet = bullets.getFirstExists(false);
 
-        if( bullet )
+        if( bullet)
         {
           console.log("Bullet X: " + jrX + ": Bully Y: " + jrY);
           bullet.reset(players[device_id].x, players[device_id].y);
