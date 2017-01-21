@@ -143,17 +143,17 @@ function create () {
       {
         if( players[i].index == device_id )
         {
-          if( data.action.pressed == true && data.action.element.includes('small')
+          if( data.action.pressed == true && data.action.element.includes('small'))
           {
             players[i].SetSize(-2);
           }
 
-          if( data.action.pressed == true && data.action.element.includes('medium')
+          if( data.action.pressed == true && data.action.element.includes('medium'))
           {
             players[i].SetSize(-1);
           }
 
-          if( data.action.pressed == true && data.action.element.includes('large')
+          if( data.action.pressed == true && data.action.element.includes('large'))
           {
             players[i].SetSize(0);
           }
