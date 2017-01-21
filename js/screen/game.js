@@ -88,6 +88,34 @@ function create () {
     // onMessage is called everytime a device sends a message with the .message() method
     airconsole.onMessage = function(device_id, data) {
       console.log(data);
+      if( data.joystick-left )
+      {
+        if( data.joystick-left.pressed )
+        {
+          var jlX = data.joystick-left.message.x;
+          var jlY = data.joystick-left.message.y;
+          if( jlX < 0 )
+          {
+            players[device_id].body.moveLeft(jlX * 400);
+          }
+
+          if( jlX > 0 )
+          {
+            players[device_id].body.moveRight(jlX * 400);
+          }
+
+          if( jlY < 0 )
+          {
+            players[device_id].body.moveUp(jlY * 400);
+          }
+
+          if( jlY > 0 )
+          {
+            players[device_id].body.moveDown(jlY * 400);
+          }
+
+        }
+      }
       if (data.Poop && data.Poop.pressed)
       {
         players[device_id].damage(1);
