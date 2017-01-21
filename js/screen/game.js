@@ -76,7 +76,6 @@ function create () {
         player.body.setCollisionGroup(playersCollisionGroup);
         player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
         players[device_id] = player;
-        console.log("Created Player: ", player, players);
       }
     };
 
@@ -112,6 +111,7 @@ function playerHit(body1, body2)
 function update () {
   for(var i = 0; i < players.length; i++ )
   {
+    console.log(players[i]);
     players[i].body.setZeroVelocity();
   }
 }
