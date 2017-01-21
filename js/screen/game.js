@@ -56,6 +56,7 @@ function create () {
       var y = game.world.randomY;
       var planet = planets.create(x, y, 'rock');
       planet.body.setRectangle(40, 40);
+      planet.sethealth(10);
       //planet.angle = game.rnd.angle();
       planet.body.setZeroVelocity();
       planet.body.setCollisionGroup(planetsCollisionGroup);
@@ -73,6 +74,7 @@ function create () {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat2');
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
+        player.sethealth(250);
         player.scale.set(0.5, 0.5);
         player.anchor.setTo(0.5, 0.5);
         player.body.setCollisionGroup(playersCollisionGroup);
@@ -139,8 +141,10 @@ function create () {
 
 function playerHit(body1, body2)
 {
-  body1.sprite.alpha -= 0.1;
-  body2.sprite.alpha -= 0.1;
+  body1.damage(1);
+  body2.damage(1);
+  body1.sprite.alpha -= 0.2;
+  body2.sprite.alpha -= 0.2;
   if (body1.sprite.alpha < 0 )
     body1.sprite.kill();
   if (body2.sprite.alpha < 0 )
