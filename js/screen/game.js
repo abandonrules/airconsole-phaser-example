@@ -37,7 +37,7 @@ var shadow;
 //var tank;
 var turret;
 
-var players;
+var players = [];
 var enemies;
 var planets;
 var enemyBullets;
@@ -60,45 +60,13 @@ var airconsole = null;
 
 // A map that holds the device_ids of the driver and the shooter
 var device_control_map = [];
-/*
-// A button-state map which indicates which buttons the driver has currently pressed
-var driver_device = {
-    left: 0,
-    right: 0,
-    up: false
-};
 
-// A button-state map which indicates which buttons the shooter has currently pressed
-var shooter_device = {
-    left: 0,
-    right: 0,
-    fire: false
-};
-// ------------------------
-*/
 function create () {
-  players = [];
 
-
-    // =======================================================
-    // Create AirConsole instance
-    // =======================================================
-
-    // Send a message to each device to tell them the role (tank or shooter)
-  /*  var setRoles = function() {
-        for (var i = 0; i < device_control_map.length; i++) {
-            // We only allow 8 players in this game
-            if (i >= 2) break;
-            var device_id = device_control_map[i];
-            /*
-            airconsole.message(device_id, {
-                action: "SET_ROLE",
-                role: i === 0 ? 'DRIVER' : 'SHOOTER'
-            });
-
-        }
-    };
-    */
+    // Setup physics
+    game.physics.startSystem(Phaser.Physics.P2JS);
+    game.physics.p2.setImpactEvents(true);
+    game.physics.p2.restitution = 0.8;
 
     airconsole = new AirConsole();
     airconsole.onReady = function() {};
@@ -149,27 +117,7 @@ function create () {
           if (data.poop)
           {
             players[i].damage(1);
-
           }
-          if( data.data )
-          {
-            if( !players[i].SizeSet )
-            {
-              if( data.data.pressed == true && data.element.includes('small'))
-              {
-                players[i].SetSize(0.5);
-              }
-              if( data.data.pressed == true && data.element.includes('medium') )
-              {
-                players[i].SetSize(.75);
-              }
-              if( data.data.pressed == true && data.element.includes('large') )
-              {
-                  players[i].SetSize(1);
-              }
-            }
-          }
-
           break;
         }
 
@@ -178,47 +126,7 @@ function create () {
           removeLogo();
         }
       }
-      /*
-        // First in the array is always the driver
-        var driver  = device_control_map[0];
-        // Second in the array is always the shooter
-        var shooter = device_control_map[1];
 
-        // A Message from the driver
-        if (driver && device_id === driver) {
-            // Driver pressed left button
-            if (data.action === 'left') {
-                driver_device.left = data.pressed;
-            }
-            // Driver pressed right button
-            if (data.action === 'right') {
-                driver_device.right = data.pressed;
-            }
-            // Driver pressed BOTH buttons
-            if (driver_device.right && driver_device.left) {
-                driver_device.up = !driver_device.up;
-            }
-        }
-
-        // Message from the Shooter
-        if (shooter && device_id === shooter) {
-            // Shooter pressed left button
-            if (data.action === 'left') {
-                shooter_device.left = data.pressed;
-            }
-            // Shooter pressed right button
-            if (data.action === 'right') {
-                shooter_device.right = data.pressed;
-            }
-            // Shooter pressed BOTH buttons, which means we shoot
-            if (shooter_device.right && shooter_device.left) {
-                shooter_device.right = false;
-                shooter_device.left = false;
-                fire();
-            }
-        }
-
-        */
     };
 
     // =======================================================
