@@ -56,7 +56,7 @@ function create () {
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
     bullets.createMultiple(20, "bullet");
-    bullets.setCollisionGroup(bulletsCollisionGroup);
+    bullets.body.setCollisionGroup(bulletsCollisionGroup);
     bullets.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetBullet);
     bullets.callAll('anchor.setTo', 'anchor', 0.5, 1.0);
     bullets.setAll('checkWorldBounds', true);
