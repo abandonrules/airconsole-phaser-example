@@ -113,6 +113,13 @@ function create () {
         }
       }
 
+      if( data['joystick-right'] )
+      {
+        var jrX = data['joystick-right'].message.x;
+
+        players[device_id].body.angle += jrX;
+      }
+
       if (data.Poop && data.Poop.pressed)
       {
         players[device_id].damage(1);
@@ -135,7 +142,6 @@ function playerHit(body1, body2)
 }
 
 function update () {
-  console.log(planets);
   for( var i = 0; i < planets.children.length; i++)
   {
     planets.children[i].body.setZeroVelocity();
