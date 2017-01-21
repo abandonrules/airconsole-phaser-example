@@ -281,7 +281,7 @@ function createPlanets()
 }
 
 function removeLogo() {
-    logo.destroy();
+    logo.kill();
 }
 
 function DestroySprite(sprite)
