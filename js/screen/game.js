@@ -150,13 +150,13 @@ function create () {
             {
               if( data.data.pressed == true && data.element.includes('small'))
               {
-                players[i].SetSize(0.25);
+                players[i].SetSize(0.5);
               }
 
 
               if( data.data.pressed == true && data.element.includes('medium') )
               {
-                players[i].SetSize(.5);
+                players[i].SetSize(.75);
 
               }
 
