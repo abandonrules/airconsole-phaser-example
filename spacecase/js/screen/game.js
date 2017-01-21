@@ -115,6 +115,16 @@ function create () {
       var centerY = game.world.centerY;
       var randX = game.world.randomX - centerX;
       var randY = game.world.randomY - centerY;
+
+      function unitVectorFor(x, y) {
+        var magnitude = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+
+        var unitX = x / magnitude;
+        var unitY = y / magnitude;
+
+        return [unitX, unitY];
+      };
+
       var locations = unitVectorFor(randX, randY);
       var locationX = locations[0];
       var locationY = locations[1];
