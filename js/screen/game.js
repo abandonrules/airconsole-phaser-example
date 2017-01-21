@@ -155,7 +155,7 @@ function create () {
 
         if( bullet )
         {
-          bullet.reset(players[device_id].sprite.x, players[device_id].sprite.y);
+          bullet.reset(players[device_id].x, players[device_id].y);
           bullet.body.velocity.x = 500;
         }
 
