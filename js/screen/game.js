@@ -81,7 +81,7 @@ var shooter_device = {
 function create () {
   players = [];
 
-  createPlanets();
+
     // =======================================================
     // Create AirConsole instance
     // =======================================================
@@ -111,6 +111,7 @@ function create () {
         if (device_control_map.length < 8) {
             device_control_map.push(device_id);
             players.push(new Player(device_id, game, players, bullets));
+            players[players.length - 1].SetSize(0.5);
             // Send a message back to the device, telling it which role it has (tank or shooter)
             //setRoles();
         }
@@ -228,6 +229,7 @@ function create () {
 
     //  Resize our game world to be a 2000 x 2000 square
     game.world.setBounds(0, 0, 800, 600);
+    createPlanets();
 
     //  Our tiled scrolling background
     land = game.add.tileSprite(0, 0, 1300, 900, 'earth');
