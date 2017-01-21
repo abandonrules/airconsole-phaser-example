@@ -148,19 +148,19 @@ function create () {
           {
             if( data.data.pressed == true && data.element.includes('small'))
             {
-              players[i].SetSize(0);
+              players[i].SetSize(1);
             }
 
 
             if( data.data.pressed == true && data.element.includes('medium') )
             {
-              players[i].SetSize(-1);
+              players[i].SetSize(2);
 
             }
 
             if( data.data.pressed == true && data.element.includes('large') )
             {
-                players[i].SetSize(-2);
+                players[i].SetSize(3);
             }
 
           }
