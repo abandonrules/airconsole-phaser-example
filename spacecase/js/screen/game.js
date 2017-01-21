@@ -109,7 +109,9 @@ function create () {
         var centerY = game.world.centerY;
         var randX = game.world.randomX - centerX;
         var randY = game.world.randomY - centerY;
-        var locationX, locationY = unitVectorFor(randX, randY)
+        var locations = unitVectorFor(randX, randY);
+        var locationX = locations[0];
+        var locationY = locations[1];
 
         locationX *= spaceScale;
         locationY *= spaceScale;
