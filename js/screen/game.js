@@ -135,10 +135,7 @@ function playerHit(body1, body2)
 }
 
 function update () {
-  for( var i = 0; i < planets.length; i++ )
-  {
-    planets[i].body.setZeroVelocity();
-  }
+  console.log(planets);
 
   for(var i = 1; i <= players.length; i++ )
   {
