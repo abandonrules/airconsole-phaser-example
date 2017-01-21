@@ -99,7 +99,8 @@ function create () {
       // }
       //if (1) {
       // if (connected_controllers.length < 9) {
-        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'7);
+        var cat_id = $device_id-1;
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+cat_id);
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.setHealth(250);
