@@ -21,6 +21,28 @@ function preload () {
     game.load.image('rock', 'assets/game/rock.png');
     game.load.spritesheet('hair', 'assets/game/explosion.png', 64, 64, 4);
 }
+var weapon;
+var cursors;
+var fireButton;
+
+function create() {
+    //  Creates 30 bullets, using the 'bullet' graphic
+    weapon = game.add.weapon(30, 'bullet');
+    //  The bullet will be automatically killed when it leaves the world bounds
+    weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+    //  Because our bullet is drawn facing up, we need to offset its rotation:
+    weapon.bulletAngleOffset = 90;
+    //  The speed at which the bullet is fired
+    weapon.bulletSpeed = 400;
+    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+    weapon.fireRate = 60;
+    //  Add a variance to the bullet speed by +- this value
+    weapon.bulletSpeedVariance = 200;
+    cat0 = this.add.sprite(320, 500, 'hair');
+    game.physics.arcade.enable(sprite);
+    //  Tell the Weapon to track the 'player' Sprite, offset by 14px horizontally, 0 vertically
+    weapon.trackSprite(cat0, 14, 0);
+}
 
 var land;
 var players = [];
@@ -221,7 +243,9 @@ function playerHit(body1, body2)
   if (body2.sprite.alpha < 0 )
     body2.sprite.kill();
 }
+function kill_storm () {
 
+}
 function update () {
 
 }
