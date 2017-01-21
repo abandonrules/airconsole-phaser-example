@@ -67,6 +67,7 @@ function create () {
 
 
     airconsole.onConnect = function(device_id) {
+      console.log("onConnect called");
       if( players.length < 8 )
       {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat2');
@@ -75,7 +76,7 @@ function create () {
         player.body.setCollisionGroup(playersCollisionGroup);
         player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
         players[device_id] = player;
-
+        console.log("Created Player: ", player, players);
       }
     };
 
