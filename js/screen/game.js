@@ -56,7 +56,10 @@ function create () {
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.P2JS;
     bullets.createMultiple(20, "bullet");
-    for( var i = 0; i < bullets.children.length; i++ ) bullets.children[i].body.setCollisionGroup(bulletsCollisionGroup);
+    for( var i = 0; i < bullets.children.length; i++ ) {
+      bullets.children[i].body.setCollisionGroup(bulletsCollisionGroup);
+      bullets.children[i].body.collides([planetsCollisionGroup, playersCollisionGroup, bulletsCollisionGroup]);
+    }
     bullets.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetBullet);
     bullets.callAll('anchor.setTo', 'anchor', 0.5, 1.0);
     bullets.setAll('checkWorldBounds', true);
