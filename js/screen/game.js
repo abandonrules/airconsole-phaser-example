@@ -128,6 +128,7 @@ function create () {
               {
                 DestroySprite(players[i].cat);
                 deleteIndex = i;
+                break;
               }
             }
 
@@ -137,6 +138,18 @@ function create () {
 
     // onMessage is called everytime a device sends a message with the .message() method
     airconsole.onMessage = function(device_id, data) {
+      console.log(data);
+      for( var i = 0; i < players.length; i++ )
+      {
+        if( players[i].index == device_id )
+        {
+          if( data.action == 'small')
+          {
+
+          }
+          break;
+        }
+      }
       /*
         // First in the array is always the driver
         var driver  = device_control_map[0];
