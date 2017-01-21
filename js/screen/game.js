@@ -143,31 +143,28 @@ function create () {
       {
         if( players[i].index == device_id )
         {
-          /*
-          if( data )
+
+          if( data.data )
           {
-            if( data.3.pressed == true)
+            if( data.data.pressed == true && data.element.include('small'))
             {
               players[i].SetSize(0);
             }
-          }
 
-          if( data.2 )
-          {
-            if( data.2.pressed == true)
+
+            if( data.data.pressed == true && data.element.include('medium') )
             {
               players[i].SetSize(-1);
+
             }
-          }
 
-
-          if( data.1 )
-            if( data.1.pressed == true )
+            if( data.data.pressed == true && data.element.include('large') )
             {
-              players[i].SetSize(-2);
+                players[i].SetSize(-2);
             }
+
           }
-          */
+
           break;
         }
       }
