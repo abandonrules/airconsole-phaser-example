@@ -210,8 +210,8 @@ function playerHit(body1, body2)
 {
   body1.damage -= 25;
   body2.damage -= 25;
-  //body1.sprite.alpha -= 0.2;
-  //body2.sprite.alpha -= 0.2;
+  body1.sprite.alpha -= 0.2;
+  body2.sprite.alpha -= 0.2;
   body2.setZeroVelocity();
   if (body1.sprite.alpha < 0 )
     body1.sprite.kill();
