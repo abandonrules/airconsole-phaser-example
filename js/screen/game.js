@@ -73,7 +73,7 @@ function create () {
     hairs = game.add.group();
     hairs.enableBody = true;
     hairs.physicsBodyType = Phaser.Physics.P2JS;
-    planets.enableBody = false;
+    //planets.enableBody = false;
     //planets.physicsBodyType = Phaser.Physics.P2JS;
 
     for( var i = 0; i < 5; i++ )
