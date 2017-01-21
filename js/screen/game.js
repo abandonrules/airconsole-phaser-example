@@ -88,6 +88,7 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
+      airconsole.setActivePlayers();
       if (connected_controllers.length > 2) {
           logo.kill();
       }
