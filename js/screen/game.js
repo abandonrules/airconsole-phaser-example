@@ -56,7 +56,7 @@ function create () {
     bullets.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetBullet);
     bullets.callAll('anchor.setTo', 'anchor', 0.5, 1.0);
     bullets.setAll('checkWorldBounds', true);
-    bullets.setAll('lifespan', 50);
+    bullets.setAll('lifeSpan', 1);
 
     planets = game.add.group();
     hairs = game.add.group();
