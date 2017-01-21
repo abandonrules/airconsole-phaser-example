@@ -179,10 +179,10 @@ function create () {
 
 
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
-//    logo = game.add.sprite(300, 200, 'logo');
-//    logo.fixedToCamera = true;
-//    game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
-//    game.camera.focusOnXY(0, 0);
+    logo = game.add.sprite(300, 200, 'logo');
+    logo.fixedToCamera = true;
+    game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
+    game.camera.focusOnXY(0, 0);
 
 }
 
