@@ -146,6 +146,14 @@ function create () {
           bullet.reset(players[device_id].x, players[device_id].y);
           bullet.body.velocity.x = 500 * jrX;
           bullet.body.velocity.y = 500 * jrY;
+
+          if( bullet.body.velocity.x < 0 )
+          {
+            bullet.scale.x *= -1;
+          }
+          else {
+              bullet.scale.x = 1;
+          }
         }
 
 
