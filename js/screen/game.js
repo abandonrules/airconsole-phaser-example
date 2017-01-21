@@ -94,10 +94,10 @@ function create () {
       {
           logo.kill();
       }
-      else {
+        else {
       Main.airconsole.setActivePlayers(2);
-    }
-      if (1) {
+      }
+      //if (1) {
       // if (connected_controllers.length < 9) {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+active_players.length);
         game.physics.p2.enable(player, false);
