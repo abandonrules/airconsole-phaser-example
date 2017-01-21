@@ -50,7 +50,7 @@ function create () {
     planets.enableBody = true;
     planets.physicsBodyType = Phaser.Physics.P2JS;
 
-    for( var i = 0; i < 10; i++ )
+    for( var i = 0; i < 5; i++ )
     {
       var x = game.world.randomX;
       var y = game.world.randomY;
@@ -74,6 +74,7 @@ function create () {
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.scale.set(0.5, 0.5);
+        player.anchor.setTo(0.5, 0.5);
         player.body.setCollisionGroup(playersCollisionGroup);
         player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
         players[device_id] = player;
