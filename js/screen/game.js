@@ -232,7 +232,8 @@ function create () {
 
 
     //  Our tiled scrolling background
-    land = game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, 'earth');
+    //land = game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, 'earth');
+    land = game.add.sprite(0, 0, window.innerWidth, window.innerHeight, 'earth');
     land.fixedToCamera = true;
 
     // Scale
