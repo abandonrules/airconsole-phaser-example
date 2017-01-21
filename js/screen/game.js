@@ -20,7 +20,7 @@ function preload () {
     game.load.atlas('enemy', 'assets/game/enemy-tanks.png', 'assets/game/tanks.json');
     game.load.image('logo', 'assets/logo.png');
     game.load.image('bullet', 'assets/game/bullet.png');
-    game.load.image('earth', 'assets/game/scorched_earth.png');
+    game.load.image('earth', 'assets/game/bg.png');
     game.load.spritesheet('kaboom', 'assets/game/explosion.png', 64, 64, 23);
     game.load.image('cat1', 'assets/game/cat2.png');
     game.load.image('cat2', 'assets/game/cat3.png');
@@ -232,7 +232,7 @@ function create () {
     createPlanets();
 
     //  Our tiled scrolling background
-    land = game.add.tileSprite(0, 0, 1300, 900, 'earth');
+    land = game.add.sprite(0, 0, 800, 600, 'earth');
     land.fixedToCamera = true;
 
     // Scale
@@ -337,6 +337,7 @@ function createPlanets()
     var x = game.world.randomX;
     var y = game.world.randomY;
     var r = game.add.sprite(x, y, 'rock');
+    r.bringToTop();
     console.log("Created Planet at " + x + ", " + y);
     r.anchor.set(0.5);
   }
