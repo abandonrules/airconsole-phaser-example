@@ -109,11 +109,15 @@ function playerHit(body1, body2)
 }
 
 function update () {
-  console.log(players);
   for(var i = 1; i <= players.length; i++ )
   {
-    console.log(players[i].body);
-    players[i].body.setZeroVelocity();
+    if( players[i] )
+    {
+      if( players[i].body )
+      {
+        players[i].body.setZeroVelocity();
+      }
+    }
   }
 }
 
