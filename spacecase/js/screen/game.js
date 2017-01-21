@@ -110,7 +110,7 @@ function create () {
       // }
       //if (1) {
       // if (connected_controllers.length < 9) {
-      var spaceScale = 200;
+      var spaceScale = 2;
       var centerX = game.world.centerX;
       var centerY = game.world.centerY;
       var randX = game.world.randomX - centerX;
