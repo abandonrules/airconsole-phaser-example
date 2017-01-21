@@ -96,22 +96,18 @@ function create () {
           var jlY = data["joystick-left"].message.y;
           if( jlX < 0 )
           {
-            players[device_id].body.moveLeft(jlX * 400);
-          }
-
-          if( jlX > 0 )
+            players[device_id].body.moveLeft(Math.abs(jlX) * 400);
+          } else if( jlX > 0 )
           {
-            players[device_id].body.moveRight(jlX * 400);
+            players[device_id].body.moveRight(Math.abs(jlX) * 400);
           }
 
           if( jlY < 0 )
           {
-            players[device_id].body.moveUp(jlY * 400);
-          }
-
-          if( jlY > 0 )
+            players[device_id].body.moveUp(Math.abs(jlY) * 400);
+          } else if( jlY > 0 )
           {
-            players[device_id].body.moveDown(jlY * 400);
+            players[device_id].body.moveDown(Math.abs(jlY) * 400);
           }
 
         }
