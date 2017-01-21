@@ -57,6 +57,10 @@ function create () {
     bullets.callAll('anchor.setTo', 'anchor', 0.5, 1.0);
     bullets.setAll('checkWorldBounds', true);
     bullets.setAll('lifeSpan', 1);
+    game.physics.arcade.overlap(bullets, player, playerHit, null, this);
+    game.physics.arcade.overlap(planets, player, playerHit, null, this);
+
+    bullets.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
 
     planets = game.add.group();
     hairs = game.add.group();
@@ -197,6 +201,7 @@ function playerHit(body1, body2)
   body2.damage -= 1;
   body1.sprite.alpha -= 0.2;
   body2.sprite.alpha -= 0.2;
+  body2.setZeroVelocity();
   if (body1.sprite.alpha < 0 )
     body1.sprite.kill();
   if (body2.sprite.alpha < 0 )
@@ -204,22 +209,7 @@ function playerHit(body1, body2)
 }
 
 function update () {
-  for( var i = 0; i < planets.children.length; i++)
-  {
-    planets.children[i].body.setZeroVelocity();
-  }
 
-  for(var i = 1; i <= players.length; i++ )
-  {
-    if( players[i] )
-    {
-      if( players[i].body )
-      {
-        //console.log("Setting Zero Velocity");
-        //players[i].body.setZeroVelocity();
-      }
-    }
-  }
 }
 
 function render () {
