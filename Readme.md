@@ -14,8 +14,8 @@ One player is the driver and the other one is the shooter.
 
 Simulator:
 
-https://www.airconsole.com/simulator/#https://storage.googleapis.com/com.airconsole.example.phaser.cdn.airconsole.com/2016-10-19-09-03-48/
+https://www.airconsole.com/simulator/#https://abandonrules.github.io/airconsole-phaser-example/
 
 With your device:
 
-https://www.airconsole.com/#https://storage.googleapis.com/com.airconsole.example.phaser.cdn.airconsole.com/2016-10-19-09-03-48/
+https://www.airconsole.com/#https://abandonrules.github.io/airconsole-phaser-example/
