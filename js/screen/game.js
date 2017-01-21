@@ -8,7 +8,7 @@ var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
 function preload () {
     game.load.image('logo', 'assets/logo.png');
     game.load.image('bullet', 'assets/game/bullet.png');
-    game.load.image('earth', 'assets/game/starfield.jpg');
+    game.load.image('space', 'assets/game/starfield.jpg');
     game.load.spritesheet('kaboom', 'assets/game/explosion.png', 64, 64, 23);
     game.load.image('cat0', 'assets/game/cat9.png');
     game.load.image('cat1', 'assets/game/cat2.png');
@@ -20,10 +20,10 @@ function preload () {
     game.load.image('cat7', 'assets/game/cat8.png');
     game.load.image('rock', 'assets/game/rock.png');
     game.load.spritesheet('hair', 'assets/game/explosion.png', 64, 64, 4);
-}
+};
 
 
-var land;
+var space;
 var players = [];
 var cat_num = 0;
 var planets;
@@ -46,10 +46,10 @@ function create () {
     game.physics.p2.updateBoundsCollisionGroup();
 
     // Setup background-color
-    land = game.add.tileSprite(0, 0, 800, 600, 'earth');
-    land.width = game.width;
-    land.height = game.height;
-    land.fixedToCamera = true;
+    space = game.add.tileSprite(0, 0, 1280  , 720, 'space');
+    space.width = game.width;
+    space.height = game.height;
+    space.fixedToCamera = true;
 
     bullets = game.add.group();
     bullets.enableBody = true;
@@ -90,17 +90,6 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
-      // if(active_players.length === 0)
-      // {
-      // if(connected_controllers.length >= 2)
-      // {
-      //     logo.kill();
-      // }
-      //   else {
-      // Main.airconsole.setActivePlayers(2);
-      // }
-      //if (1) {
-      // if (connected_controllers.length < 9) {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+cat_num);
         cat_num++;
         game.physics.p2.enable(player, false);
@@ -111,7 +100,6 @@ function create () {
         player.body.setCollisionGroup(playersCollisionGroup);
         player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
         players[device_id] = player;
-      // }
     };
 
     // Called when a device disconnects (can take up to 5 seconds after device left)
@@ -162,7 +150,6 @@ function create () {
         hair.body.setZeroVelocity();
         hair.body.setCollisionGroup(hairCollisionGroup);
         hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
-
         players[device_id].damage(1);
 
       }
