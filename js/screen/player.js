@@ -17,7 +17,7 @@ Player.prototype.SetSize(size)
 {
   this.cat = game.add.sprite(x, y, 'cat1');
   this.cat.tint = Math.random() * 0xffffff;
-
+  this.cat.scale.setTo(size, size);
   this.cat.anchor.set(0.5);
 
   game.physics.enable(this.cat, Phaser.Physics.ARCADE);
