@@ -4,6 +4,7 @@ Player = function(index, game, players, bullets)
   var y = game.world.randomY;
 
   this.game = game;
+  this.index = index;
   this.health = 10;
   this.players = players;
   this.fireRate = 1000;

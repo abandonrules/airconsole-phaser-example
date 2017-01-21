@@ -86,7 +86,7 @@ function create () {
   /*  var setRoles = function() {
         for (var i = 0; i < device_control_map.length; i++) {
             // We only allow 8 players in this game
-            if (i >= 8) break;
+            if (i >= 2) break;
             var device_id = device_control_map[i];
             /*
             airconsole.message(device_id, {
