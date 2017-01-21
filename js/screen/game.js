@@ -85,7 +85,6 @@ function create () {
       planet.setHealth(10);
       //planet.angle = game.rnd.angle();
       planet.body.setZeroVelocity();
-      planet.body.STATIC;
       planet.body.setCollisionGroup(planetsCollisionGroup);
       planet.body.collides([planetsCollisionGroup, playersCollisionGroup, bulletsCollisionGroup]);
     }
