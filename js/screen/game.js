@@ -60,7 +60,7 @@ function create () {
     //game.physics.arcade.overlap(bullets, player, playerHit, null, this);
     //game.physics.arcade.overlap(planets, player, playerHit, null, this);
 
-    bullets.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
+    //bullets.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
 
     planets = game.add.group();
     hairs = game.add.group();
