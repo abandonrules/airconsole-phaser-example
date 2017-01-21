@@ -229,18 +229,20 @@ function create () {
 
     //  Resize our game world to be a 2000 x 2000 square
     game.world.setBounds(0, 0, 800, 600);
-    createPlanets();
+
 
     //  Our tiled scrolling background
     land = game.add.tileSprite(0, 0, 800, 600, 'earth');
     land.fixedToCamera = true;
 
     // Scale
-    var scale_manager = new Phaser.ScaleManager(game, 800, 600);
+  /*  var scale_manager = new Phaser.ScaleManager(game, 800, 600);
     scale_manager.scaleMode = Phaser.ScaleManager.RESIZE;
     scale_manager.pageAlignVertically = true;
     scale_manager.pageAlignHorizontally = true;
     scale_manager.refresh();
+*/
+    createPlanets();
 
     //  The base of our tank
     /*tank = game.add.sprite(0, 0, 'tank', 'tank1');
