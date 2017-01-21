@@ -88,11 +88,15 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
-      airconsole.setActivePlayers();
-      var device_ids = airconsole.getControllerDeviceIds();
-      if (connected_controllers.length > 2) {
+      if(active_players.length === 0)
+      {
+      if(connected_controllers.length >= 2)
+      {
           logo.kill();
       }
+      else {
+      Main.airconsole.setActivePlayers(2);
+    }
       if (1) {
       // if (connected_controllers.length < 9) {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+active_players.length);
