@@ -74,7 +74,7 @@ function create () {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat2');
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
-        player.sethealth(250);
+        player.body.sethealth(250);
         player.scale.set(0.5, 0.5);
         player.anchor.setTo(0.5, 0.5);
         player.body.setCollisionGroup(playersCollisionGroup);
