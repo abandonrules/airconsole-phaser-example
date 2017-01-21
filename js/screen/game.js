@@ -149,7 +149,7 @@ function create () {
           if (data.poop)
           {
             players[i].damage(1);
-            
+
           }
           if( data.data )
           {
@@ -309,10 +309,10 @@ function create () {
 /*
     tank.bringToTop();
     turret.bringToTop();
-
+*/
     logo = game.add.sprite(300, 200, 'logo');
     logo.fixedToCamera = true;
-*/
+
     // This is now handled by AirConsole
     // game.input.onDown.add(removeLogo, this);
 
