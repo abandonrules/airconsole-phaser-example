@@ -30,6 +30,7 @@ function preload () {
     game.load.image('cat6', 'assets/game/cat7.png');
     game.load.image('cat7', 'assets/game/cat8.png');
     game.load.image('cat8', 'assets/game/cat9.png');
+    game.load.image('rock', 'assets/game/rock.png');
 }
 
 var land;
@@ -40,6 +41,7 @@ var turret;
 
 var players;
 var enemies;
+var planets;
 var enemyBullets;
 var enemiesTotal = 0;
 var enemiesAlive = 0;
@@ -78,6 +80,8 @@ var shooter_device = {
 */
 function create () {
   players = [];
+
+  createPlanets();
     // =======================================================
     // Create AirConsole instance
     // =======================================================
@@ -322,6 +326,16 @@ function removeLogo() {
 function DestroySprite(sprite)
 {
   sprite.destroy();
+}
+
+function CreatePlanets()
+{
+  for( var i = 0; i < 5; i++ )
+  {
+    var x = game.world.randomX;
+    var y = game.world.randomY;
+    game.add.sprite(x, y, 'rock');
+  }
 }
 
 function update () {
