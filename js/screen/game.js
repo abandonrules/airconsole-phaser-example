@@ -141,8 +141,9 @@ function create () {
 
         var bullet = bullets.getFirstExists(false);
 
-        if( bullet && (jrX > 50 || jrX < -50))
+        if( bullet )
         {
+          console.log("Bullet X: " + jrX + ": Bully Y: " + jrY);
           bullet.reset(players[device_id].x, players[device_id].y);
           bullet.body.velocity.x = 500 * jrX;
           bullet.body.velocity.y = 500 * jrY;
