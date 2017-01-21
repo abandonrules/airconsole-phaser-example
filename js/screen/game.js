@@ -116,11 +116,7 @@ function create () {
         {
           if (data.Poop && data.Poop.pressed)
           {
-            console.log("Adding damage");
             players[i].damage(1);
-          }
-          else {
-            console.log("Didn't Add damage");
           }
           break;
         }

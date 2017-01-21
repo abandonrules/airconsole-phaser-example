@@ -36,14 +36,15 @@ Player.prototype.SetSize = function(size)
 Player.prototype.damage = function(amount) {
   this.cat.alpha -= 0.1;
   this.cat.health -= amount;
-  console.log("Player Alpha: " + this.cat.alpha);
+
 }
 
 Player.prototype.update = function()
 {
-  if (this.health >= 0)
+  if (this.cat.health >= 0)
   {
-    this.alive = false;
+    this.cat.alive = false;
+    console.log("Cat Should be Dead");
   }
 
 }
