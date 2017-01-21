@@ -126,6 +126,7 @@ function create () {
             {
               if( players[i].index == device_id )
               {
+                DestroySprite(players[i].cat);
                 deleteIndex = i;
               }
             }
@@ -278,6 +279,11 @@ function create () {
 
 function removeLogo() {
     logo.kill();
+}
+
+function DestroySprite(sprite)
+{
+  sprite.destroy();
 }
 
 function update () {
