@@ -127,7 +127,7 @@ function create () {
 
       if (data.Poop && data.Poop.pressed)
       {
-        players[device_id].damage(1);
+        players[device_id].damage(25);
       }
     };
 
