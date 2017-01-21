@@ -57,8 +57,8 @@ function create () {
     bullets.callAll('anchor.setTo', 'anchor', 0.5, 1.0);
     bullets.setAll('checkWorldBounds', true);
     bullets.setAll('lifeSpan', 1);
-    game.physics.arcade.overlap(bullets, player, playerHit, null, this);
-    game.physics.arcade.overlap(planets, player, playerHit, null, this);
+    //game.physics.arcade.overlap(bullets, player, playerHit, null, this);
+    //game.physics.arcade.overlap(planets, player, playerHit, null, this);
 
     bullets.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
 
