@@ -73,12 +73,24 @@
             airconsole.convertPlayerNumberToDeviceId(player),
             { vibrate: 1000 })
       }
-
+getProfilePicture
       /**
        * Shows who scored and updates the score afterwards.
        */
       function displayScore(player) {
         var name = airconsole.getNickname(
+            airconsole.convertPlayerNumberToDeviceId(player));
+        score_el.innerHTML = "<div style='font-size: 20px;margin-top:16px'>" +
+                             name + " scored!</div>";
+        window.setTimeout(function() {
+          score_el.innerHTML = score.join(":");
+        }, 1000);
+      }
+      /**
+       * Shows who scored and updates the score afterwards.
+       */
+      function displayScore(player) {
+        var name = airconsole.getProfilePicture(
             airconsole.convertPlayerNumberToDeviceId(player));
         score_el.innerHTML = "<div style='font-size: 20px;margin-top:16px'>" +
                              name + " scored!</div>";
@@ -265,9 +277,23 @@
       }
 
       #score {
+              position: absolute;
+              top: 10%;
+              left: 0px;
+              width: 100%;
+              font-size: 48px;
+      }
+      #score0 {
+        position: relative;;
+        top: 10%;
+        left: -10px;
+        width: 100%;
+        font-size: 48px;
+      }
+      #score1 {
         position: absolute;
         top: 10%;
-        left: 0px;
+        right: -10px;
         width: 100%;
         font-size: 48px;
       }
@@ -287,6 +313,9 @@
     <div class="game">
       <canvas id="canvas"></canvas>
       <div id="score">0:0</div>
+      <div id="score0">player1</div>
+      <div id="score1">player2</div>
+
       <div id="wait"></div>
     </div>
   </body>
