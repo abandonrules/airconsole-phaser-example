@@ -73,12 +73,12 @@
             airconsole.convertPlayerNumberToDeviceId(player),
             { vibrate: 1000 })
       }
-getProfilePicture
+
       /**
        * Shows who scored and updates the score afterwards.
        */
-      function displayScore(player) {
-        var name = airconsole.getNickname(
+      function displayProfile(player) {
+        var name = airconsole.getProfilePicture(
             airconsole.convertPlayerNumberToDeviceId(player));
         score_el.innerHTML = "<div style='font-size: 20px;margin-top:16px'>" +
                              name + " scored!</div>";
@@ -109,6 +109,8 @@ getProfilePicture
 
         canvas = document.getElementById("canvas");
         score_el = document.getElementById("score");
+        score_el1 = document.getElementById("score0");
+        score_el2 = document.getElementById("score1");
         paddles = [
           { pos: {x: 10, y: 50}, move: {x: 0, y: 0 },
             el: document.getElementById("player_1") },
@@ -284,16 +286,16 @@ getProfilePicture
               font-size: 48px;
       }
       #score0 {
-        position: relative;;
-        top: 10%;
-        left: -10px;
+        position: absolute;
+        top: 5%;
+        left: 10px;
         width: 100%;
         font-size: 48px;
       }
       #score1 {
         position: absolute;
-        top: 10%;
-        right: -10px;
+        top: 5%;
+        right: 10px;
         width: 100%;
         font-size: 48px;
       }
