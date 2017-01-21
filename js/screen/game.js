@@ -101,7 +101,7 @@ function create () {
       //if (1) {
       // if (connected_controllers.length < 9) {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+cat_num);
-        cat_num += cat_num;
+        cat_num++;
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.setHealth(250);
