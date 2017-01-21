@@ -16,8 +16,6 @@ var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
 });
 
 function preload () {
-    game.load.atlas('tank', 'assets/game/tanks.png', 'assets/game/tanks.json');
-    game.load.atlas('enemy', 'assets/game/enemy-tanks.png', 'assets/game/tanks.json');
     game.load.image('logo', 'assets/logo.png');
     game.load.image('bullet', 'assets/game/bullet.png');
     game.load.image('earth', 'assets/game/starfield.jpg');
