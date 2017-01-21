@@ -88,18 +88,18 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
-      if(active_players.length === 0)
-      {
-      if(connected_controllers.length >= 2)
-      {
-          logo.kill();
-      }
-        else {
-      Main.airconsole.setActivePlayers(2);
-      }
+      // if(active_players.length === 0)
+      // {
+      // if(connected_controllers.length >= 2)
+      // {
+      //     logo.kill();
+      // }
+      //   else {
+      // Main.airconsole.setActivePlayers(2);
+      // }
       //if (1) {
       // if (connected_controllers.length < 9) {
-        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+active_players.length);
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+device_id-1);
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.setHealth(250);
@@ -108,7 +108,7 @@ function create () {
         player.body.setCollisionGroup(playersCollisionGroup);
         player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
         players[device_id] = player;
-      }
+      // }
     };
 
     // Called when a device disconnects (can take up to 5 seconds after device left)
