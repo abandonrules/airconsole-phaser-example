@@ -144,7 +144,7 @@ function update () {
       if( players[i].body )
       {
         console.log("Setting Zero Velocity");
-        players[i].body.setZeroVelocity();
+        //players[i].body.setZeroVelocity();
       }
     }
   }
