@@ -12,7 +12,8 @@ EnemyTank = function (index, game, player, bullets) {
 
   this.shadow = game.add.sprite(x, y, 'enemy', 'shadow');
   this.tank = game.add.sprite(x, y, 'enemy', 'tank1');
-  this.turret = game.add.sprite(x, y, 'enemy', 'turret');
+  this.tank.tint = Math.random() * 0xffffff;
+  //this.turret = game.add.sprite(x, y, 'enemy', 'turret');
 
   this.shadow.anchor.set(0.5);
   this.tank.anchor.set(0.5);
