@@ -70,19 +70,19 @@
   <script type="text/javascript" src="controller/libs/handlebars-v4.0.5.js"></script>
   <!-- AIRCONSOLE -->
   <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-latest.js"></script>
-  <script type="text/javascript" src="controller/libs/airconsole_view_manager.js"></script>
+  <!-- <script type="text/javascript" src="controller/libs/airconsole_view_manager.js"></script> -->
   <!-- AIRCONSOLE CONTROLS -->
   <script type="text/javascript" src="airconsole-controls/button/button.js"></script>
   <script type="text/javascript" src="airconsole-controls/dpad/dpad.js"></script>
-  <script type="text/javascript" src="airconsole-controls/swipe-analog/swipe-analog.js"></script>
-  <script type="text/javascript" src="airconsole-controls/swipe-digital/swipe-digital.js"></script>
+  <!-- <script type="text/javascript" src="airconsole-controls/swipe-analog/swipe-analog.js"></script> -->
+  <!-- <script type="text/javascript" src="airconsole-controls/swipe-digital/swipe-digital.js"></script> -->
   <!-- GENERATOR -->
-  <script type="text/javascript" src="controller/js/controller_generator.js"></script>
-  <script type="text/javascript" src="controller/js/main.js"></script>
+  <!-- <script type="text/javascript" src="controller/js/controller_generator.js"></script>
+  <script type="text/javascript" src="controller/js/main.js"></script> -->
   <script type="text/javascript" src="../airconsole-events.js"></script>
   <script type="text/javascript">
     var view_ele = $('#view');
-  //  var airconsole = new AirConsole();
+   var airconsole = new AirConsole();
 
     airconsole.onMessage = function(device_id, data) {
       this.dispatchEvent(device_id, data);
