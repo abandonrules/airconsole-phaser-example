@@ -141,7 +141,7 @@ function create () {
 
         var bullet = bullets.getFirstExists(false);
 
-        if( bullet && jrX != 0 )
+        if( bullet && (jrX > 50 || jrX < -50))
         {
           bullet.reset(players[device_id].x, players[device_id].y);
           bullet.body.velocity.x = 500 * jrX;
