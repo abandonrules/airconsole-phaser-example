@@ -19,6 +19,7 @@ function preload () {
     game.load.image('cat7', 'assets/game/cat8.png');
     game.load.image('cat8', 'assets/game/cat9.png');
     game.load.image('rock', 'assets/game/rock.png');
+    game.load.image('hair', 'assets/game/explosion.png', 64, 64, 4);
 }
 
 var land;
@@ -36,6 +37,7 @@ function create () {
 
     var playersCollisionGroup = game.physics.p2.createCollisionGroup();
     var planetsCollisionGroup = game.physics.p2.createCollisionGroup();
+    var hairCollisionGroup = game.physics.p2.createCollisionGroup();
 
     // Checks all objects  for world border
     game.physics.p2.updateBoundsCollisionGroup();
@@ -47,6 +49,9 @@ function create () {
     land.fixedToCamera = true;
 
     planets = game.add.group();
+    hairs = game.add.group();
+    hairs.enableBody = true;
+    hairs.physicsBodyType = Phaser.Physics.P2JS;
     planets.enableBody = true;
     planets.physicsBodyType = Phaser.Physics.P2JS;
 
@@ -128,6 +133,13 @@ function create () {
       if (data.Poop && data.Poop.pressed)
       {
         players[device_id].damage(25);
+        var hair = planets.create(players[device_id].sprite.x, players[device_id].sprite.y, 'hair');
+        hair.body.setRectangle(10, 10);
+        hair.setHealth(10);
+        //planet.angle = game.rnd.angle();
+        hair.body.setZeroVelocity();
+        hair.body.setCollisionGroup(hairCollisionGroup);
+        hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
       }
     };
 
@@ -164,7 +176,7 @@ function update () {
     {
       if( players[i].body )
       {
-        console.log("Setting Zero Velocity");
+        //console.log("Setting Zero Velocity");
         //players[i].body.setZeroVelocity();
       }
     }
