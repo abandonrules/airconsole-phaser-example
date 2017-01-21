@@ -70,7 +70,7 @@ function create () {
       console.log("onConnect called");
       if( players.length < 8 )
       {
-        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat2');
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat1');
         game.physics.p2.enable(player, false);
         player.body.setCircle(30);
         player.body.setCollisionGroup(playersCollisionGroup);
@@ -115,6 +115,7 @@ function update () {
     {
       if( players[i].body )
       {
+        console.log("Setting Zero Velocity");
         players[i].body.setZeroVelocity();
       }
     }
