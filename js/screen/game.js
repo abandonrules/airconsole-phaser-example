@@ -150,8 +150,8 @@ function create () {
 
       if( data['joystick-right'] && data['joystick-right'].pressed )
       {
-        var jrX = data['joystick-right'].message.x;
-        var jrY = data['joystick-right'].message.y;
+        //var jrX = data['joystick-right'].message.x;
+        //var jrY = data['joystick-right'].message.y;
 
         //players[device_id].angle += jrX;
 
@@ -159,7 +159,7 @@ function create () {
 
         if( bullet)
         {
-        fire_bullet(jrX,jrY)
+        fire_bullet(data['joystick-right'].message.x,data['joystick-right'].message.y);
         }
 
 
