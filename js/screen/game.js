@@ -71,7 +71,7 @@ function create () {
       if( players.length < 8 )
       {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat1');
-        game.physics.p2.enable(player, false);
+        game.physics.p2.enable(player, true);
         player.body.setCircle(30);
         player.body.setCollisionGroup(playersCollisionGroup);
         player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
