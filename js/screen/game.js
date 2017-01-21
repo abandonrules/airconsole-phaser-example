@@ -143,19 +143,28 @@ function create () {
       {
         if( players[i].index == device_id )
         {
-          if( data.action.pressed == true && data.action.element.includes('small'))
+          if( data.3 )
           {
-            players[i].SetSize(-2);
+            if( data.3.pressed == true)
+            {
+              players[i].SetSize(0);
+            }
           }
 
-          if( data.action.pressed == true && data.action.element.includes('medium'))
+          if( data.2 )
           {
-            players[i].SetSize(-1);
+            if( data.2.pressed == true)
+            {
+              players[i].SetSize(-1);
+            }
           }
 
-          if( data.action.pressed == true && data.action.element.includes('large'))
-          {
-            players[i].SetSize(0);
+
+          if( data.1 )
+            if( data.1.pressed == true )
+            {
+              players[i].SetSize(-2);
+            }
           }
           break;
         }
