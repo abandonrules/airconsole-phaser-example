@@ -45,7 +45,7 @@ function create () {
     game.physics.p2.updateBoundsCollisionGroup();
 
     // Setup background-color
-    land = game.add.sprite(0, 0, 'earth');
+    land = game.add.tileSprite(0, 0, 800, 600, 'earth');
     land.width = game.width;
     land.height = game.height;
     land.fixedToCamera = true;
