@@ -110,7 +110,7 @@ function playerHit(body1, body2)
 
 function update () {
   console.log(players);
-  for(var i = 0; i < players.length; i++ )
+  for(var i = 1; i <= players.length; i++ )
   {
     console.log(players[i]);
     players[i].body.setZeroVelocity();
