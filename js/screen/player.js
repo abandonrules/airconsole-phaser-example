@@ -35,7 +35,13 @@ Player.prototype.SetSize = function(size)
   this.SizeSet = true;
 }
 
+Player.prototype.damage = function(object,amount) {
+  object.alpha -= 0.1;
+  object.health -= amount;
+}
+
 Player.prototype.update = function()
 {
-
+  if this.health >= 0;
+    this.alive = false;
 }
