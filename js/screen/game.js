@@ -152,13 +152,8 @@ function create () {
       {
         fire_bullet(device_id,data['joystick-right'].message.x,data['joystick-right'].message.y);
         }
-
-
-      }
-
       if (data.Poop && data.Poop.pressed)
       {
-
         players[device_id].damage(25);
         var hair = planets.create(players[device_id].x, players[device_id].y, 'hair');
         hair.body.setRectangle(10, 10);
