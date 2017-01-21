@@ -143,7 +143,8 @@ function create () {
       {
         if( players[i].index == device_id )
         {
-          if( data.3 )
+          /*
+          if( data )
           {
             if( data.3.pressed == true)
             {
@@ -166,6 +167,7 @@ function create () {
               players[i].SetSize(-2);
             }
           }
+          */
           break;
         }
       }
