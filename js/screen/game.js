@@ -56,7 +56,7 @@ function create () {
       var y = game.world.randomY;
       var planet = planets.create(x, y, 'rock');
       planet.body.setRectangle(40, 40);
-      planet.body.setHealth(10);
+      // planet.body.setHealth(10);
       //planet.angle = game.rnd.angle();
       planet.body.setZeroVelocity();
       planet.body.setCollisionGroup(planetsCollisionGroup);
