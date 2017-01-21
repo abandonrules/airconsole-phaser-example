@@ -147,21 +147,25 @@ function create () {
         }
       if (data.Poop && data.Poop.pressed)
       {
-        players[device_id].damage(25);
-        var hair = planets.create(players[device_id].x, players[device_id].y, 'hair');
-        hair.body.setRectangle(10, 10);
-        hair.setHealth(10);
-        //planet.angle = game.rnd.angle();
-        hair.body.setZeroVelocity();
-        hair.body.setCollisionGroup(hairCollisionGroup);
-        hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
-
+        poop(device_id);
       }
     };
 
 
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
     //enableLogo();
+}
+function poop(device_id)
+{
+  players[device_id].damage(25);
+  var hair = planets.create(players[device_id].x, players[device_id].y, 'hair');
+  hair.body.setRectangle(10, 10);
+  hair.setHealth(10);
+  //planet.angle = game.rnd.angle();
+  hair.body.setZeroVelocity();
+  hair.body.setCollisionGroup(hairCollisionGroup);
+  hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
+
 }
 function fire_bullet(device_id,jrX,jrY)
 {
