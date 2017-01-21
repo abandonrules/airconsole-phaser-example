@@ -8,7 +8,7 @@
  * One is the driver and the other one is the shooter.
  */
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-example', {
     preload: preload,
     create: create,
     update: update,
@@ -228,11 +228,11 @@ function create () {
     // =======================================================
 
     //  Resize our game world to be a 2000 x 2000 square
-    game.world.setBounds(0, 0, 800, 600);
+    game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
 
 
     //  Our tiled scrolling background
-    land = game.add.tileSprite(0, 0, 800, 600, 'earth');
+    land = game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, 'earth');
     land.fixedToCamera = true;
 
     // Scale
