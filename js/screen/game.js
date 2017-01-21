@@ -232,5 +232,5 @@ function update () {
 
 function render () {
     //game.debug.text('Enemies: ' + enemiesAlive + ' / ' + enemiesTotal, 32, 32);
-    game.debug.text("Players connected: " + players.length, 32, 32);
+    game.debug.text("Players connected: " + players.length-1, 32, 32);
 }
