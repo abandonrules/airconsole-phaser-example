@@ -1,11 +1,10 @@
-Player = function(index, game, players, bullets)
+Player = function(index, game, players)
 {
   this.game = game;
   this.index = index;
   this.health = 10;
   this.players = players;
   this.fireRate = 1000;
-  this.bullets = bullets;
   this.nextFire = 0;
   this.alive = true;
   this.SizeSet = false;

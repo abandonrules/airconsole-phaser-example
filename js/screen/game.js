@@ -57,7 +57,7 @@ function create () {
       var y = game.world.randomY;
       var planet = planets.create(x, y, 'rock');
       planet.body.setRectangle(40, 40);
-      planet.angle = game.rnd.angle();
+      //planet.angle = game.rnd.angle();
       planet.body.setCollisionGroup(planetsCollisionGroup);
       planet.body.collides([planetsCollisionGroup, playersCollisionGroup]);
     }
@@ -70,7 +70,7 @@ function create () {
         // Only first two devices can play
         if (device_control_map.length < 8) {
             device_control_map.push(device_id);
-            players.push(new Player(device_id, game, players, bullets));
+            players.push(new Player(device_id, game, players, null));
             players[players.length - 1].SetSize(0.5);
             // Send a message back to the device, telling it which role it has (tank or shooter)
             //setRoles();
