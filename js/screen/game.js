@@ -26,7 +26,6 @@ var players = [];
 var planets;
 var logo;
 var airconsole = null;
-var device_control_map = [];
 
 function create () {
 
@@ -51,13 +50,14 @@ function create () {
     planets.enableBody = true;
     planets.physicsBodyType = Phaser.Physics.P2JS;
 
-    for( var i = 0; i < 5; i++ )
+    for( var i = 0; i < 10; i++ )
     {
       var x = game.world.randomX;
       var y = game.world.randomY;
       var planet = planets.create(x, y, 'rock');
       planet.body.setRectangle(40, 40);
       //planet.angle = game.rnd.angle();
+      planet.body.setZeroVelocity();
       planet.body.setCollisionGroup(planetsCollisionGroup);
       planet.body.collides([planetsCollisionGroup, playersCollisionGroup]);
     }
@@ -65,104 +65,57 @@ function create () {
     airconsole = new AirConsole();
     airconsole.onReady = function() {};
 
-    // As soon as a device connects we add it to our device-map
+
     airconsole.onConnect = function(device_id) {
-        // Only first two devices can play
-        if (device_control_map.length < 8) {
-            device_control_map.push(device_id);
-            players.push(new Player(device_id, game, players, null));
-            players[players.length - 1].SetSize(0.5);
-            // Send a message back to the device, telling it which role it has (tank or shooter)
-            //setRoles();
-        }
+      if( players.length < 8 )
+      {
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat2');
+        game.physics.p2.enable(player, false);
+        player.body.setCircle(30);
+        player.body.setCollisionGroup(playersCollisionGroup);
+        player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
+        players[device_id] = player;
+
+      }
     };
 
     // Called when a device disconnects (can take up to 5 seconds after device left)
     airconsole.onDisconnect = function(device_id) {
         // Remove the device from the map
-        var index = device_control_map.indexOf(device_id);
-        if (index !== -1) {
-            device_control_map.splice(index, 1);
-            // Update roles
-            //setRoles();
-            // remove player
-            var deleteIndex;
-            for( var i = 0; i < players.length; i++ )
-            {
-              if( players[i].index == device_id )
-              {
-                DestroySprite(players[i].cat);
-                deleteIndex = i;
-                break;
-              }
-            }
-
-            players.splice(deleteIndex, 1);
-        }
+        players.splice(device_id, 1);
     };
 
     // onMessage is called everytime a device sends a message with the .message() method
     airconsole.onMessage = function(device_id, data) {
       console.log(data);
-      for( var i = 0; i < players.length; i++ )
+      if (data.Poop && data.Poop.pressed)
       {
-        if( players[i].index == device_id )
-        {
-          if (data.Poop && data.Poop.pressed)
-          {
-            players[i].damage(1);
-          }
-          break;
-        }
+        players[device_id].damage(1);
       }
-
     };
 
-    // =======================================================
-    // THE FOLLOWING PART IS MOST LIKELEY FROM THE ORIGINAL EXAMPLE
-    // =======================================================
 
-    //  Resize our game world to be a 2000 x 2000 square
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
-
-    logo = game.add.sprite(300, 200, 'logo');
-    logo.fixedToCamera = true;
-    game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
-    game.camera.focusOnXY(0, 0);
+//    logo = game.add.sprite(300, 200, 'logo');
+//    logo.fixedToCamera = true;
+//    game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
+//    game.camera.focusOnXY(0, 0);
 
 }
 
+function playerHit(body1, body2)
+{
+  body1.sprite.alpha -= 0.1;
+}
+
 function update () {
-  if( players.length <= 1 )
+  for(var i = 0; i < players.length; i++ )
   {
-    if( !logo )
-    {
-      logo.reset(300, 200);// = game.add.sprite(300, 200, 'logo');
-    }
-  } else {
-    if( logo )
-    {
-      removeLogo();
-    }
+    players[i].body.setZeroVelocity();
   }
 }
 
 function render () {
     //game.debug.text('Enemies: ' + enemiesAlive + ' / ' + enemiesTotal, 32, 32);
     game.debug.text("Players connected: " + players.length, 32, 32);
-}
-
-
-function createPlanets(group)
-{
-
-}
-
-function removeLogo() {
-    logo.kill();
-}
-
-function DestroySprite(sprite)
-{
-  sprite.destroy();
 }
