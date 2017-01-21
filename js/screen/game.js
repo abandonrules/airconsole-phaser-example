@@ -1,13 +1,3 @@
-/**
- * Example of how to make a game with Phaser and AirConsole
- * This example is originally from Phaser and was modified to work with AirConsole.
- * http://phaser.io/examples/v2/games/tanks
- *
- * In this example two players can control the same tank with their smartphones instead of
- * one player by keyboard and mouse.
- * One is the driver and the other one is the shooter.
- */
-
 var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-example', {
     preload: preload,
     create: create,
@@ -32,33 +22,10 @@ function preload () {
 }
 
 var land;
-
-var shadow;
-//var tank;
-var turret;
-
 var players = [];
-var enemies;
 var planets;
-var enemyBullets;
-var enemiesTotal = 0;
-var enemiesAlive = 0;
-var explosions;
-
 var logo;
-
-var currentSpeed = 0;
-var cursors;
-
-var bullets;
-var fireRate = 100;
-var nextFire = 0;
-
-// ------------------------
-// AirConsole relevant vars
 var airconsole = null;
-
-// A map that holds the device_ids of the driver and the shooter
 var device_control_map = [];
 
 function create () {
@@ -67,6 +34,33 @@ function create () {
     game.physics.startSystem(Phaser.Physics.P2JS);
     game.physics.p2.setImpactEvents(true);
     game.physics.p2.restitution = 0.8;
+
+    var playersCollisionGroup = game.physics.p2.createCollisionGroup();
+    var planetsCollisionGroup = game.physics.p2.createCollisionGroup();
+
+    // Checks all objects  for world border
+    game.physics.p2.updateBoundsCollisionGroup();
+
+    // Setup background-color
+    land = game.add.sprite(0, 0, 'earth');
+    land.width = game.width;
+    land.height = game.height;
+    land.fixedToCamera = true;
+
+    planets = game.add.group();
+    planets.enableBody = true;
+    planets.physicsBodyType = Phaser.Physics.P2JS;
+
+    for( var i = 0; i < 5; i++ )
+    {
+      var x = game.world.randomX;
+      var y = game.world.randomY;
+      var planet = planets.create(x, y, 'rock');
+      planet.body.setRectangle(40, 40);
+      planet.angle = game.rnd.angle();
+      planet.body.setCollisionGroup(planetsCollisionGroup);
+      planet.body.collides([planetsCollisionGroup, playersCollisionGroup]);
+    }
 
     airconsole = new AirConsole();
     airconsole.onReady = function() {};
@@ -131,16 +125,6 @@ function create () {
     //  Resize our game world to be a 2000 x 2000 square
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
 
-
-    //  Our tiled scrolling background
-    //land = game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, 'earth');
-    land = game.add.sprite(0, 0, 'earth');
-    land.width = game.width;
-    land.height = game.height;
-    land.fixedToCamera = true;
-
-    createPlanets();
-
     logo = game.add.sprite(300, 200, 'logo');
     logo.fixedToCamera = true;
     game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
@@ -169,18 +153,9 @@ function render () {
 }
 
 
-function createPlanets()
+function createPlanets(group)
 {
-  for( var i = 0; i < 5; i++ )
-  {
-    var x = game.world.randomX;
-    var y = game.world.randomY;
-    var r = game.add.sprite(x, y, 'rock');
-    r.bringToTop();
-    console.log("Created Planet at " + x + ", " + y);
-    r.anchor.set(0.5);
-    r.angle = game.rnd.angle();
-  }
+
 }
 
 function removeLogo() {
