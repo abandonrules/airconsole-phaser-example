@@ -132,7 +132,7 @@ function create () {
       locationX *= spaceScale;
       locationY *= spaceScale;
 
-      var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+cat_num);
+      var player = game.add.sprite(locationX, locationY, 'cat'+cat_num);
       cat_num++;
       game.physics.p2.enable(player, false);
       player.body.setCircle(50);
