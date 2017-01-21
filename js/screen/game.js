@@ -192,7 +192,7 @@ function create () {
 
 
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
-    enableLogo();
+    //enableLogo();
 }
 function enableLogo()
 {
