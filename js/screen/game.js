@@ -328,7 +328,7 @@ function DestroySprite(sprite)
   sprite.destroy();
 }
 
-function CreatePlanets()
+function createPlanets()
 {
   for( var i = 0; i < 5; i++ )
   {
