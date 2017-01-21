@@ -141,9 +141,9 @@ function playerHit(body1, body2)
 {
   body1.sprite.alpha -= 0.1;
   body2.sprite.alpha -= 0.1;
-  if body1.sprite.alpha < 0
+  if (body1.sprite.alpha < 0 )
     body1.kill();
-  if body2.sprite.alpha < 0
+  if (body2.sprite.alpha < 0 )
     body2.kill();
 }
 
