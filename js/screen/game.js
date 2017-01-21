@@ -175,7 +175,7 @@ function fire_bullet(device_id,jrX,jrY)
   {
 
     console.log("Bullet X: " + jrX + ": Bully Y: " + jrY);
-    bullet.reset(players[device_id].x, players[device_id].y);
+    bullet.reset(players[device_id].x + 30, players[device_id].y - 30);
     bullet.body.velocity.x = 500 * jrX;
     bullet.body.velocity.y = 500 * jrY;
 
