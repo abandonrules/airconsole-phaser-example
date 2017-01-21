@@ -118,7 +118,7 @@ function create () {
       {
         var jrX = data['joystick-right'].message.x;
 
-        players[device_id].body.angle += jrX;
+        players[device_id].angle += jrX;
       }
 
       if (data.Poop && data.Poop.pressed)
