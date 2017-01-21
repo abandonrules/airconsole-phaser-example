@@ -232,7 +232,7 @@ function create () {
     createPlanets();
 
     //  Our tiled scrolling background
-    land = game.add.sprite(0, 0, 800, 600, 'earth');
+    land = game.add.tileSprite(0, 0, 800, 600, 'earth');
     land.fixedToCamera = true;
 
     // Scale
