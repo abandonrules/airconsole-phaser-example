@@ -54,7 +54,7 @@ function create () {
 
     bullets = game.add.group();
     bullets.enableBody = true;
-    bullets.physicsBodyType = Phaser.Physics.ARCADE;
+    bullets.physicsBodyType = Phaser.Physics.P2JS;
     bullets.createMultiple(20, "bullet");
     for( var i = 0; i < bullets.children.length; i++ ) bullets.children[i].body.setCollisionGroup(bulletsCollisionGroup);
     bullets.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetBullet);
