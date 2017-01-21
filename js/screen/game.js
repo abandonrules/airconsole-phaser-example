@@ -120,11 +120,6 @@ function create () {
           }
           break;
         }
-
-        if( players.length > 1 )
-        {
-          removeLogo();
-        }
       }
 
     };
@@ -158,7 +153,7 @@ function update () {
   {
     if( !logo )
     {
-      logo = game.add.sprite(300, 200, 'logo');
+      logo.reset(300, 200);// = game.add.sprite(300, 200, 'logo');
     }
   } else {
     if( logo )
