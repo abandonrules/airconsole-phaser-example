@@ -99,9 +99,9 @@ function create () {
       console.log("onConnect called");
       airconsole.setActivePlayers();
       var device_ids = airconsole.getControllerDeviceIds();
-      if (connected_controllers.length > 2) {
+      // if (connected_controllers.length > 2) {
           logo.kill();
-      }
+      //}
       if (1) {
       // if (connected_controllers.length < 9) {
         var spaceScale = 200;
