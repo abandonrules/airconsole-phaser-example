@@ -40,6 +40,7 @@ function create () {
 
     var playersCollisionGroup = game.physics.p2.createCollisionGroup();
     var planetsCollisionGroup = game.physics.p2.createCollisionGroup();
+    var bulletsCollisionGroup = game.physics.p2.createCollisionGroup();
     var hairCollisionGroup = game.physics.p2.createCollisionGroup();
 
     // Checks all objects  for world border
@@ -55,6 +56,7 @@ function create () {
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
     bullets.createMultiple(20, "bullet");
+    bullets.setCollisionGroup(bulletsCollisionGroup);
     bullets.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', resetBullet);
     bullets.callAll('anchor.setTo', 'anchor', 0.5, 1.0);
     bullets.setAll('checkWorldBounds', true);
@@ -81,7 +83,7 @@ function create () {
       //planet.angle = game.rnd.angle();
       planet.body.setZeroVelocity();
       planet.body.setCollisionGroup(planetsCollisionGroup);
-      planet.body.collides([planetsCollisionGroup, playersCollisionGroup]);
+      planet.body.collides([planetsCollisionGroup, playersCollisionGroup, bulletsCollisionGroup]);
     }
 
     airconsole = new AirConsole();
@@ -98,7 +100,7 @@ function create () {
         player.scale.set(0.5, 0.5);
         player.anchor.setTo(0.5, 0.5);
         player.body.setCollisionGroup(playersCollisionGroup);
-        player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
+        player.body.collides([planetsCollisionGroup, playersCollisionGroup, bulletsCollisionGroup], playerHit, this);
         players[device_id] = player;
     };
 
