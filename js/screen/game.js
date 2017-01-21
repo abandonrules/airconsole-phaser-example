@@ -342,6 +342,7 @@ function createPlanets()
     r.bringToTop();
     console.log("Created Planet at " + x + ", " + y);
     r.anchor.set(0.5);
+    r.angle = game.rnd.angle();
   }
 }
 
