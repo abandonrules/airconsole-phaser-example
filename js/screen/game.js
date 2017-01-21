@@ -159,7 +159,7 @@ function create () {
 
         if( bullet)
         {
-        fire_bullet(data['joystick-right'].message.x,data['joystick-right'].message.y);
+        fire_bullet(device_id,data['joystick-right'].message.x,data['joystick-right'].message.y);
         }
 
 
@@ -186,7 +186,7 @@ function create () {
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
     //enableLogo();
 }
-function fire_bullet(jrX,jrY)
+function fire_bullet(device_id,jrX,jrY)
 {
   console.log("Bullet X: " + jrX + ": Bully Y: " + jrY);
   bullet.reset(players[device_id].x, players[device_id].y);
