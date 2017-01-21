@@ -13,9 +13,8 @@ One player is the driver and the other one is the shooter.
 ### LIVE VERSION
 
 Simulator:
-
-https://www.airconsole.com/simulator/#https://storage.googleapis.com/com.airconsole.example.phaser.cdn.airconsole.com/2016-10-19-09-03-48/
+https://www.airconsole.com/simulator/#debug:https://abandonrules.github.io/airconsole-phaser-example/mayfield/
 
 With your device:
 
-https://www.airconsole.com/#https://storage.googleapis.com/com.airconsole.example.phaser.cdn.airconsole.com/2016-10-19-09-03-48/
+https://www.airconsole.com/#debug:https://abandonrules.github.io/airconsole-phaser-example/mayfield/
