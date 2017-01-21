@@ -114,9 +114,13 @@ function create () {
       {
         if( players[i].index == device_id )
         {
-          if (data.poop)
+          if (data.poop && data.poop.pressed)
           {
+            console.log("Adding damage");
             players[i].damage(1);
+          }
+          else {
+            console.log("Didn't Add damage");
           }
           break;
         }
