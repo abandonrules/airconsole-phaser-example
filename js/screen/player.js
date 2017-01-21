@@ -13,7 +13,7 @@ Player = function(index, game, players, bullets)
   this.alive = true;
 }
 
-Player.prototype.SetSize(size)
+Player.prototype.SetSize = function(size)
 {
   this.cat = game.add.sprite(x, y, 'cat1');
   this.cat.tint = Math.random() * 0xffffff;
