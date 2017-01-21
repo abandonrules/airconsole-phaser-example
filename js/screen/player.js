@@ -1,7 +1,5 @@
 Player = function(index, game, players, bullets)
 {
-
-
   this.game = game;
   this.index = index;
   this.health = 10;
@@ -42,6 +40,9 @@ Player.prototype.damage = function(object,amount) {
 
 Player.prototype.update = function()
 {
-  if this.health >= 0;
+  if (this.health >= 0)
+  {
     this.alive = false;
+  }
+
 }
