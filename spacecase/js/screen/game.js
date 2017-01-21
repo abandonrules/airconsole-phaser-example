@@ -1,18 +1,9 @@
-var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-example', {
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-airconsole', {
     preload: preload,
     create: create,
     update: update,
     render: render
 });
-
-function unitVectorFor(x, y) {
-  var magnitude = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
-
-  var unitX = x / magnitude;
-  var unitY = y / magnitude;
-
-  return [unitX, unitY];
-};
 
 function preload () {
     game.load.image('logo', 'assets/logo.png');
@@ -33,6 +24,7 @@ function preload () {
 
 var land;
 var players = [];
+var cat_num = 0;
 var planets;
 var bullets;
 var logo;
@@ -97,36 +89,40 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
-      airconsole.setActivePlayers();
-      var device_ids = airconsole.getControllerDeviceIds();
-      // if (connected_controllers.length > 2) {
-          logo.kill();
-      //}
-      if (1) {
+      // if(active_players.length === 0)
+      // {
+      // if(connected_controllers.length >= 2)
+      // {
+      //     logo.kill();
+      // }
+      //   else {
+      // Main.airconsole.setActivePlayers(2);
+      // }
+      //if (1) {
       // if (connected_controllers.length < 9) {
-        var spaceScale = 200;
-        var centerX = game.world.centerX;
-        var centerY = game.world.centerY;
-        var randX = game.world.randomX - centerX;
-        var randY = game.world.randomY - centerY;
-        var locations = unitVectorFor(randX, randY);
-        var locationX = locations[0];
-        var locationY = locations[1];
+      var spaceScale = 200;
+      var centerX = game.world.centerX;
+      var centerY = game.world.centerY;
+      var randX = game.world.randomX - centerX;
+      var randY = game.world.randomY - centerY;
+      var locations = unitVectorFor(randX, randY);
+      var locationX = locations[0];
+      var locationY = locations[1];
 
-        locationX *= spaceScale;
-        locationY *= spaceScale;
+      locationX *= spaceScale;
+      locationY *= spaceScale;
 
-        var player = game.add.sprite(locationX, locationY, 'cat'+active_players.length);
-
-        game.physics.p2.enable(player, false);
-        player.body.setCircle(50);
-        player.setHealth(250);
-        player.scale.set(0.5, 0.5);
-        player.anchor.setTo(centerX, centerY);
-        player.body.setCollisionGroup(playersCollisionGroup);
-        player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
-        players[device_id] = player;
-      }
+      var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+cat_num);
+      cat_num++;
+      game.physics.p2.enable(player, false);
+      player.body.setCircle(50);
+      player.setHealth(250);
+      player.scale.set(0.5, 0.5);
+      player.anchor.setTo(0.5, 0.5);
+      player.body.setCollisionGroup(playersCollisionGroup);
+      player.body.collides([planetsCollisionGroup, playersCollisionGroup], playerHit, this);
+      players[device_id] = player;
+      // }
     };
 
     // Called when a device disconnects (can take up to 5 seconds after device left)
@@ -140,85 +136,24 @@ function create () {
       console.log(data);
       if( data["joystick-left"] && data["joystick-left"].pressed )
       {
-          var jlX = data["joystick-left"].message.x;
-          var jlY = data["joystick-left"].message.y;
-          var speed = 40;
-          var body = players[device_id].body
+        var jlX = data["joystick-left"].message.x;
+        var jlY = data["joystick-left"].message.y;
+        var speed = 40;
+        var body = players[device_id].body;
 
-          // move anticlockwise
-          if (jlX < 0)
-          {
-            body.rotateLeft(speed);
-          }
+        // move anticlockwise
+        if (jlX < 0)
+        {
+          body.rotateLeft(speed);
+        }
 
-          // move clockwise
-          if (jlX > 0)
-          {
-            body.rotateRight(speed);
-          }
+        // move clockwise
+        if (jlX > 0)
+        {
+          body.rotateRight(speed);
+        }
+      };
 
-
-          /*
-          var circleScale = 400;
-          var originX = 400; // Center of screen or solarsystem
-          var originY = 400; // Center of screen or solarsystem
-          // Calculate new desired location
-          // We could use a check to ensure the magnitude is strong enough to register.
-          // Haven't coded that yet.
-
-          var jlUnitX, jlUnitY = unitVectorFor(jlX, jlY);
-
-          var desiredX = jlUnitX * circleScale + originX;
-          var desiredY = jlUnitY * circleScale + originY;
-
-
-          var movementSpeed = 3; // 3 Cats of speed;
-          var movementScale = 70; // A GUESS. CHANGE THIS
-          
-          var radialDirection = 'clockwise';
-          // direction calculation goes here
-
-          // Calculate angle we're currently at
-          // Calculate angle we're going to
-          // Close that gap
-          var body = players[device_id].body;
-
-          var sansOriginBodyX = body.x - originX;
-          var sansOriginBodyY = body.y - originY;
-
-
-          function angle_of_points(x, y) {
-            Math.atan2(y, x);
-          };
-
-          var bodyAngle = angle_of_points(sansOriginBodyX, sansOriginBodyY);
-
-          */
-
-
-
-
-
-          /*
-          // square movement
-          if( jlX < 0 )
-          {
-            players[device_id].body.moveLeft(Math.abs(jlX) * 400);
-          } else if( jlX > 0 )
-          {
-            players[device_id].body.moveRight(Math.abs(jlX) * 400);
-          }
-
-          if( jlY < 0 )
-          {
-            players[device_id].body.moveUp(Math.abs(jlY) * 400);
-          } else if( jlY > 0 )
-          {
-            players[device_id].body.moveDown(Math.abs(jlY) * 400);
-          }
-
-          */
-      }
 
       if( data['joystick-right'] && data['joystick-right'].pressed )
       {
@@ -267,7 +202,7 @@ function create () {
 
 
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
-    enableLogo();
+    //enableLogo();
 }
 function enableLogo()
 {
