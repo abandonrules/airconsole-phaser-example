@@ -10,6 +10,7 @@ function preload () {
     game.load.image('bullet', 'assets/game/bullet.png');
     game.load.image('earth', 'assets/game/starfield.jpg');
     game.load.spritesheet('kaboom', 'assets/game/explosion.png', 64, 64, 23);
+    game.load.image('cat0', 'assets/game/cat9.png');
     game.load.image('cat1', 'assets/game/cat2.png');
     game.load.image('cat2', 'assets/game/cat3.png');
     game.load.image('cat3', 'assets/game/cat4.png');
@@ -17,7 +18,6 @@ function preload () {
     game.load.image('cat5', 'assets/game/cat6.png');
     game.load.image('cat6', 'assets/game/cat7.png');
     game.load.image('cat7', 'assets/game/cat8.png');
-    game.load.image('cat8', 'assets/game/cat9.png');
     game.load.image('rock', 'assets/game/rock.png');
     game.load.spritesheet('hair', 'assets/game/explosion.png', 64, 64, 4);
 }
@@ -88,9 +88,9 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
-      if( players.length <= 8 )
-      {
-        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat2');
+
+      if (connected_controllers.length < 9) {
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+active_players.length);
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.setHealth(250);
