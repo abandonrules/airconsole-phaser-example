@@ -36,6 +36,7 @@ Player.prototype.SetSize = function(size)
 Player.prototype.damage = function(amount) {
   this.cat.alpha -= 0.1;
   this.cat.health -= amount;
+  console.log("Player Alpha: " + this.cat.alpha);
 }
 
 Player.prototype.update = function()
