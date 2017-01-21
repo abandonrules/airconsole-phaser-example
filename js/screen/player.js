@@ -1,7 +1,6 @@
 Player = function(index, game, players, bullets)
 {
-  var x = game.world.randomX;
-  var y = game.world.randomY;
+
 
   this.game = game;
   this.index = index;
@@ -15,6 +14,8 @@ Player = function(index, game, players, bullets)
 
 Player.prototype.SetSize = function(size)
 {
+  var x = game.world.randomX;
+  var y = game.world.randomY;
   this.cat = game.add.sprite(x, y, 'cat1');
   this.cat.tint = Math.random() * 0xffffff;
   this.cat.scale.setTo(size, size);
