@@ -68,9 +68,9 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
-      if( players.length < 8 )
+      if( players.length <= 8 )
       {
-        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat1');
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat2');
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.scale.set(0.5, 0.5);
@@ -140,6 +140,10 @@ function playerHit(body1, body2)
 {
   body1.sprite.alpha -= 0.1;
   body2.sprite.alpha -= 0.1;
+  if body1.sprite.alpha < 0
+    body1.kill();
+  if body2.sprite.alpha < 0
+    body2.kill();
 }
 
 function update () {
