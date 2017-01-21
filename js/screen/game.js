@@ -150,15 +150,6 @@ function create () {
 
       if( data['joystick-right'] && data['joystick-right'].pressed )
       {
-        //var jrX = data['joystick-right'].message.x;
-        //var jrY = data['joystick-right'].message.y;
-
-        //players[device_id].angle += jrX;
-
-        var bullet = bullets.getFirstExists(false);
-
-        if( bullet)
-        {
         fire_bullet(device_id,data['joystick-right'].message.x,data['joystick-right'].message.y);
         }
 
@@ -188,17 +179,23 @@ function create () {
 }
 function fire_bullet(device_id,jrX,jrY)
 {
-  console.log("Bullet X: " + jrX + ": Bully Y: " + jrY);
-  bullet.reset(players[device_id].x, players[device_id].y);
-  bullet.body.velocity.x = 500 * jrX;
-  bullet.body.velocity.y = 500 * jrY;
+  var bullet = bullets.getFirstExists(false);
 
-  if( bullet.body.velocity.x < 0 )
+  if( bullet)
   {
-    bullet.scale.x *= -1;
-  }
-  else {
+
+    console.log("Bullet X: " + jrX + ": Bully Y: " + jrY);
+    bullet.reset(players[device_id].x, players[device_id].y);
+    bullet.body.velocity.x = 500 * jrX;
+    bullet.body.velocity.y = 500 * jrY;
+
+    if( bullet.body.velocity.x < 0 )
+    {
+      bullet.scale.x *= -1;
+    }
+    else {
       bullet.scale.x = 1;
+    }
   }
 }
 function enableLogo()
