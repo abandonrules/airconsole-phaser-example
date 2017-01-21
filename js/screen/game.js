@@ -133,9 +133,21 @@ function create () {
 
       if( data['joystick-right'] )
       {
-        //var jrX = data['joystick-right'].message.x;
+        var jrX = data['joystick-right'].message.x;
+        var jrY = data['joystick-right'].message.y;
 
         //players[device_id].angle += jrX;
+
+        var bullet = bullets.getFirstExists(false);
+
+        if( bullet )
+        {
+          bullet.reset(players[device_id].x, players[device_id].y);
+          bullet.body.velocity.x = 500 * jrX;
+          bullet.body.velocity.y = 500 * jrY;
+        }
+
+
       }
 
       if (data.Poop && data.Poop.pressed)
@@ -151,13 +163,6 @@ function create () {
         hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
 
         players[device_id].damage(1);
-        var bullet = bullets.getFirstExists(false);
-
-        if( bullet )
-        {
-          bullet.reset(players[device_id].x, players[device_id].y);
-          bullet.body.velocity.x = 500;
-        }
 
       }
     };
