@@ -91,7 +91,8 @@ function create () {
       if (connected_controllers.length > 2) {
           logo.kill();
       }
-      if (connected_controllers.length < 9) {
+      if (1) {
+      // if (connected_controllers.length < 9) {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+active_players.length);
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
