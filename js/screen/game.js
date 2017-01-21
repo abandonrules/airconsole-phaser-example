@@ -155,7 +155,6 @@ function create () {
         hair.body.setZeroVelocity();
         hair.body.setCollisionGroup(hairCollisionGroup);
         hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
-        players[device_id].damage(1);
 
       }
     };
@@ -207,8 +206,8 @@ function playerHit(body1, body2)
 {
   body1.damage -= 1;
   body2.damage -= 1;
-  body1.sprite.alpha -= 0.2;
-  body2.sprite.alpha -= 0.2;
+  //body1.sprite.alpha -= 0.2;
+  //body2.sprite.alpha -= 0.2;
   body2.setZeroVelocity();
   if (body1.sprite.alpha < 0 )
     body1.sprite.kill();
