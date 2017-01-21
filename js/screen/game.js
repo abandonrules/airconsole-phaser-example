@@ -169,6 +169,11 @@ function create () {
 
           break;
         }
+
+        if( players.length > 0 )
+        {
+          removeLogo();
+        }
       }
       /*
         // First in the array is always the driver
