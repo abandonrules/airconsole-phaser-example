@@ -143,32 +143,36 @@ function create () {
       {
         if( players[i].index == device_id )
         {
-          /*
-          if( data )
+
+          if( data.data )
           {
-            if( data.3.pressed == true)
+            if( !players[i].SizeSet )
             {
-              players[i].SetSize(0);
+              if( data.data.pressed == true && data.element.includes('small'))
+              {
+                players[i].SetSize(0.5);
+              }
+
+
+              if( data.data.pressed == true && data.element.includes('medium') )
+              {
+                players[i].SetSize(.75);
+
+              }
+
+              if( data.data.pressed == true && data.element.includes('large') )
+              {
+                  players[i].SetSize(1);
+              }
             }
           }
 
-          if( data.2 )
-          {
-            if( data.2.pressed == true)
-            {
-              players[i].SetSize(-1);
-            }
-          }
-
-
-          if( data.1 )
-            if( data.1.pressed == true )
-            {
-              players[i].SetSize(-2);
-            }
-          }
-          */
           break;
+        }
+
+        if( players.length > 0 )
+        {
+          removeLogo();
         }
       }
       /*
@@ -219,7 +223,7 @@ function create () {
     // =======================================================
 
     //  Resize our game world to be a 2000 x 2000 square
-    game.world.setBounds(-1000, -1000, 2000, 2000);
+    game.world.setBounds(0, 0, 800, 600);
 
     //  Our tiled scrolling background
     land = game.add.tileSprite(0, 0, 1300, 900, 'earth');

@@ -1,7 +1,6 @@
 Player = function(index, game, players, bullets)
 {
-  var x = game.world.randomX;
-  var y = game.world.randomY;
+
 
   this.game = game;
   this.index = index;
@@ -11,13 +10,16 @@ Player = function(index, game, players, bullets)
   this.bullets = bullets;
   this.nextFire = 0;
   this.alive = true;
+  this.SizeSet = false;
 }
 
-Player.prototype.SetSize(size)
+Player.prototype.SetSize = function(size)
 {
+  var x = game.world.randomX;
+  var y = game.world.randomY;
   this.cat = game.add.sprite(x, y, 'cat1');
   this.cat.tint = Math.random() * 0xffffff;
-  this.cat.scale.setTo(size, size);
+  this.cat.scale.set(size, size);
   this.cat.anchor.set(0.5);
 
   game.physics.enable(this.cat, Phaser.Physics.ARCADE);
@@ -30,7 +32,7 @@ Player.prototype.SetSize(size)
   this.cat.angle = game.rnd.angle();
 
   game.physics.arcade.velocityFromRotation(this.cat.rotation, 100, this.cat.body.velocity);
-
+  this.SizeSet = true;
 }
 
 Player.prototype.update = function()
