@@ -88,7 +88,9 @@ function create () {
 
     airconsole.onConnect = function(device_id) {
       console.log("onConnect called");
-
+      if (connected_controllers.length > 2) {
+          logo.kill();
+      }
       if (connected_controllers.length < 9) {
         var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+active_players.length);
         game.physics.p2.enable(player, false);
@@ -183,11 +185,14 @@ function create () {
 
 
     game.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
-    logo = game.add.sprite(300, 200, 'logo');
-    logo.fixedToCamera = true;
-    game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
-    game.camera.focusOnXY(0, 0);
-
+    enableLogo();
+}
+function enableLogo()
+{
+  logo = game.add.sprite(300, 200, 'logo');
+  logo.fixedToCamera = true;
+  game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
+  game.camera.focusOnXY(0, 0);
 }
 
 function resetBullet(bullet)
