@@ -334,7 +334,9 @@ function createPlanets()
   {
     var x = game.world.randomX;
     var y = game.world.randomY;
-    game.add.sprite(x, y, 'rock');
+    var r = game.add.sprite(x, y, 'rock');
+    console.log("Created Planet at " + x + ", " + y);
+    r.anchor.set(0.5);
   }
 }
 
