@@ -24,6 +24,7 @@ function preload () {
 
 var land;
 var players = [];
+var cat_num = 0;
 var planets;
 var bullets;
 var logo;
@@ -99,8 +100,8 @@ function create () {
       // }
       //if (1) {
       // if (connected_controllers.length < 9) {
-        var cat_id = $device_id-1;
-        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+cat_id);
+        var player = game.add.sprite(game.world.randomX, game.world.randomY, 'cat'+cat_num);
+        cat_num += cat_num;
         game.physics.p2.enable(player, false);
         player.body.setCircle(50);
         player.setHealth(250);
