@@ -19,7 +19,7 @@ function preload () {
     game.load.image('cat6', 'assets/game/cat7.png');
     game.load.image('cat7', 'assets/game/cat8.png');
     game.load.image('rock', 'assets/game/rock.png');
-    game.load.image('hair', 'assets/game/hairball.jpg');
+    game.load.image('hair', 'assets/game/hairball.png');
 };
 
 
