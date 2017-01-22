@@ -57,7 +57,8 @@ function create () {
     bullets = game.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.P2JS;
-    bullets.createMultiple(20, "bullet");
+    bullets.createMultiple(20, "bullet",[0, 1, 2, 3]);
+  
     for( var i = 0; i < bullets.children.length; i++ ) {
       bullets.children[i].body.setCollisionGroup(bulletsCollisionGroup);
       bullets.children[i].body.collides([planetsCollisionGroup, bulletsCollisionGroup], bulletHit, this);
