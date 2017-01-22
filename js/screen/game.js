@@ -19,7 +19,7 @@ function preload () {
     game.load.image('cat6', 'assets/game/cat7.png');
     game.load.image('cat7', 'assets/game/cat8.png');
     game.load.image('rock', 'assets/game/rock.png');
-    game.load.spritesheet('hair', 'assets/game/explosion.png', 64, 64, 4);
+    game.load.spritesheet('hair', 'assets/game/hairball.jpg');
 };
 
 
@@ -58,7 +58,7 @@ function create () {
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.P2JS;
     bullets.createMultiple(20, "bullet",[0, 1, 2, 3]);
-  
+
     for( var i = 0; i < bullets.children.length; i++ ) {
       bullets.children[i].body.setCollisionGroup(bulletsCollisionGroup);
       bullets.children[i].body.collides([planetsCollisionGroup, bulletsCollisionGroup], bulletHit, this);
