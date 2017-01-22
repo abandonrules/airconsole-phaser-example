@@ -66,5 +66,11 @@
 <script type="text/javascript">
 var airconsole = new AirConsole({orientation: AirConsole.ORIENTATION_LANDSCAPE});
 CtrlGenerator.setAirConsole(airconsole);
-CtrlGenerator.generate({"left":{"type":{"label":"Joystick","class_name":"Joystick"}},"middle":[{"label":"Poop","key":"Poop"}],"right":{"type":{"label":"Joystick","class_name":"Joystick"}}});
+CtrlGenerator.generate({"left":
+[{"type":{"label":"ButtonVertical","class_name":"Button"},"label":"Tubby","key":"3","on_up_message":false}],
+"middle":
+[],
+"right":[
+{"type":{"label":"ButtonVertical","class_name":"Button"},"label":"Purrfect","key":"1","on_up_message":false},
+{"type":{"label":"ButtonVertical","class_name":"Button"},"label":"Skinny","key":"0","on_up_message":false}]});
 </script></body></html>
