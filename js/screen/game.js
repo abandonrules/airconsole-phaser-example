@@ -34,14 +34,15 @@ var deadcats= 0;
 var gracepts = 25;
 var grace = 0;
 var airconsole = null;
+  game.physics.startSystem(Phaser.Physics.P2JS);
+    game.physics.p2.setImpactEvents(true);
+    game.physics.p2.restitution = 0.8;
 var hairCollisionGroup = game.physics.p2.createCollisionGroup();
 
 function create () {
 
     // Setup physics
-    game.physics.startSystem(Phaser.Physics.P2JS);
-    game.physics.p2.setImpactEvents(true);
-    game.physics.p2.restitution = 0.8;
+  
 
     var playersCollisionGroup = game.physics.p2.createCollisionGroup();
     var planetsCollisionGroup = game.physics.p2.createCollisionGroup();
