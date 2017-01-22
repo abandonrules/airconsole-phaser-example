@@ -221,7 +221,10 @@ function playerHit(body1, body2)
   body2.sprite.alpha -= 0.2;
   body2.setZeroVelocity();
   if (body1.sprite.alpha < 0 )
+    {
     body1.sprite.kill();
+    enableLogo();
+    }
   if (body2.sprite.alpha < 0 )
     body2.sprite.kill();
 
@@ -229,6 +232,7 @@ function playerHit(body1, body2)
   {
     body2.sprite.body.setZeroVelocity();
   }
+
 }
   else {
     grace++;
