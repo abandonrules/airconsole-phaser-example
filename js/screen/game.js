@@ -162,7 +162,7 @@ function create () {
 function poop(device_id)
 {
   players[device_id].damage(25);
-  var hair = planets.create(players[device_id].x, players[device_id].y, 'hair');
+  var hair = hair.create(players[device_id].x, players[device_id].y, 'hair');
   hair.body.setRectangle(10, 10);
   hair.scale.setTo(0.5,0.5);
   hair.setHealth(10);
