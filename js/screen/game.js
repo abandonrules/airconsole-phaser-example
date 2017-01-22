@@ -169,8 +169,8 @@ function poop(device_id)
   hair.setHealth(10);
   //planet.angle = game.rnd.angle();
   hair.body.setZeroVelocity();
-  hair.body.setCollisionGroup(hairCollisionGroup);
-  hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
+//  hair.body.setCollisionGroup(hairCollisionGroup);
+ // hair.body.collides([planetsCollisionGroup, hairCollisionGroup], playerHit, this);
 
 }
 function fire_bullet(device_id,jrX,jrY)
