@@ -34,6 +34,7 @@ var deadcats= 0;
 var gracepts = 25;
 var grace = 0;
 var airconsole = null;
+var hairCollisionGroup = game.physics.p2.createCollisionGroup();
 
 function create () {
 
@@ -45,7 +46,7 @@ function create () {
     var playersCollisionGroup = game.physics.p2.createCollisionGroup();
     var planetsCollisionGroup = game.physics.p2.createCollisionGroup();
     var bulletsCollisionGroup = game.physics.p2.createCollisionGroup();
-    var hairCollisionGroup = game.physics.p2.createCollisionGroup();
+    
 
     // Checks all objects  for world border
     game.physics.p2.updateBoundsCollisionGroup();
