@@ -29,6 +29,8 @@ var cat_num = 0;
 var planets;
 var bullets;
 var logo;
+var gracepts = 25;
+var grace;
 var airconsole = null;
 
 function create () {
@@ -208,6 +210,8 @@ function bulletHit(body1, body2)
 
 function playerHit(body1, body2)
 {
+  if ( grace > gracepts )
+  {
   body1.damage -= 25;
   body2.damage -= 25;
   body1.sprite.alpha -= 0.2;
@@ -222,6 +226,7 @@ function playerHit(body1, body2)
   {
     body2.sprite.body.setZeroVelocity();
   }
+}
 }
 function kill_storm () {
 
