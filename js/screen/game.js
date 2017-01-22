@@ -7,7 +7,7 @@ var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
 
 function preload () {
     game.load.image('logo', 'assets/logo.png');
-    game.load.image('bullet', 'assets/game/bullet.png');
+    game.load.spritesheet('bullet', 'assets/game/explosion.png', 64, 64, 23);
     game.load.image('space', 'assets/game/starfield.jpg');
     game.load.spritesheet('kaboom', 'assets/game/explosion.png', 64, 64, 23);
     game.load.image('cat0', 'assets/game/cat9.png');
@@ -30,7 +30,7 @@ var planets;
 var bullets;
 var logo;
 var gracepts = 25;
-var grace;
+var grace = 0;
 var airconsole = null;
 
 function create () {
@@ -227,6 +227,9 @@ function playerHit(body1, body2)
     body2.sprite.body.setZeroVelocity();
   }
 }
+  else {
+    grace++;
+  }
 }
 function kill_storm () {
 
