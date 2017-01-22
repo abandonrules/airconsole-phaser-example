@@ -34,20 +34,18 @@ var deadcats= 0;
 var gracepts = 25;
 var grace = 0;
 var airconsole = null;
-  game.physics.startSystem(Phaser.Physics.P2JS);
-    game.physics.p2.setImpactEvents(true);
-    game.physics.p2.restitution = 0.8;
-var hairCollisionGroup = game.physics.p2.createCollisionGroup();
 
 function create () {
 
     // Setup physics
-  
+    game.physics.startSystem(Phaser.Physics.P2JS);
+    game.physics.p2.setImpactEvents(true);
+    game.physics.p2.restitution = 0.8;
 
     var playersCollisionGroup = game.physics.p2.createCollisionGroup();
     var planetsCollisionGroup = game.physics.p2.createCollisionGroup();
     var bulletsCollisionGroup = game.physics.p2.createCollisionGroup();
-    
+    var hairCollisionGroup = game.physics.p2.createCollisionGroup();
 
     // Checks all objects  for world border
     game.physics.p2.updateBoundsCollisionGroup();
@@ -202,10 +200,6 @@ function enableLogo()
   logo.fixedToCamera = true;
   game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
   game.camera.focusOnXY(0, 0);
-  
-   this.add.text( 30, game.world.centerY + 100, "Programmer: Chris Mayfield", {font:"50px Arial", fill: "#FFFFFF"});
-  this.add.text( 30, game.world.centerY + 170, "Programmer: Mike Clubb", {font:"50px Arial", fill: "#FFFFFF"});
-  this.add.text( 30, game.world.centerY + 240, "Artist: Vihar Pchelarov", {font:"50px Arial", fill: "#FFFFFF"});
 }
 
 function resetBullet(bullet)
