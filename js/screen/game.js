@@ -30,6 +30,7 @@ var cat_num = 0;
 var planets;
 var bullets;
 var logo;
+var deadcats= 0;
 var gracepts = 25;
 var grace = 0;
 var airconsole = null;
@@ -223,7 +224,7 @@ function playerHit(body1, body2)
   if (body1.sprite.alpha < 0 )
     {
     body1.sprite.kill();
-    if (cat_num = deadcats; )
+    if (cat_num = deadcats )
       enableLogo();
       else
         deadcats++;
