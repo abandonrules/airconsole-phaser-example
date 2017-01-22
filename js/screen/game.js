@@ -80,7 +80,7 @@ function create () {
     planets.enableBody = true;
     planets.physicsBodyType = Phaser.Physics.P2JS;
 
-    for( var i = 0; i < 10; i++ )
+    for( var i = 0; i < 20; i++ )
     {
       var x = game.world.randomX;
       var y = game.world.randomY;
