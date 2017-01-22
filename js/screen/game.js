@@ -200,6 +200,10 @@ function enableLogo()
   logo.fixedToCamera = true;
   game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
   game.camera.focusOnXY(0, 0);
+  
+   this.add.text( 30, this.world.centerY + 100, "Programmer: Chris Mayfield", {font:"50px Arial", fill: "#FFFFFF"});
+  this.add.text( 30, this.world.centerY + 170, "Programmer: Mike Clubb", {font:"50px Arial", fill: "#FFFFFF"});
+  this.add.text( 30, this.world.centerY + 240, "Artist: Vihar Pchelarov", {font:"50px Arial", fill: "#FFFFFF"});
 }
 
 function resetBullet(bullet)
