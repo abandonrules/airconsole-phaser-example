@@ -1,4 +1,4 @@
-var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-airconsole', {
+  var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-airconsole', {
     preload: preload,
     create: create,
     update: update,
@@ -80,7 +80,7 @@ function create () {
     planets.enableBody = true;
     planets.physicsBodyType = Phaser.Physics.P2JS;
 
-    for( var i = 0; i < 5; i++ )
+    for( var i = 0; i < 10; i++ )
     {
       var x = game.world.randomX;
       var y = game.world.randomY;
