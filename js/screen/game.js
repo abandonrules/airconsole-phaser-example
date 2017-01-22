@@ -20,6 +20,7 @@ function preload () {
     game.load.image('cat7', 'assets/game/cat8.png');
     game.load.image('rock', 'assets/game/rock.png');
     game.load.image('hair', 'assets/game/hairball.png');
+
 };
 
 
@@ -163,6 +164,7 @@ function poop(device_id)
   players[device_id].damage(25);
   var hair = planets.create(players[device_id].x, players[device_id].y, 'hair');
   hair.body.setRectangle(10, 10);
+  hair.scale.setTo(0.5,0.5);
   hair.setHealth(10);
   //planet.angle = game.rnd.angle();
   hair.body.setZeroVelocity();
