@@ -223,7 +223,10 @@ function playerHit(body1, body2)
   if (body1.sprite.alpha < 0 )
     {
     body1.sprite.kill();
-    enableLogo();
+    if (cat_num = deadcats; )
+      enableLogo();
+      else
+        deadcats++;
     }
   if (body2.sprite.alpha < 0 )
     body2.sprite.kill();
